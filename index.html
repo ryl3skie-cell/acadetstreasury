@@ -816,7 +816,7 @@
     let unlockedUntil = 0;
     let relockTimer = null;
     // Big/bulk actions always ask for the passcode, even during the 5 minutes
-    const ALWAYS_ASK = ['clearData', 'resetAllAccounts', 'batchDeduct', 'batchAddAdvance', 'forceFridaySync'];
+    const ALWAYS_ASK = ['clearData', 'resetAllAccounts', 'batchDeduct', 'batchAddAdvance', 'forceFridaySync', 'toggleFinePaid_' ];
 
     // Make functions explicit and globally accessible
     window.switchTab = function(tabId) {
@@ -833,10 +833,14 @@
     };
 
     window.promptPasscodeAction = function(actionName) {
-      if (Date.now() < unlockedUntil && !ALWAYS_ASK.includes(actionName)) {
-        window.executeProtectedAction(actionName);
-        return;
-      }
+     if (
+  Date.now() < unlockedUntil &&
+  !ALWAYS_ASK.includes(actionName) &&
+  !actionName.startsWith('toggleFinePaid_')
+) {
+  window.executeProtectedAction(actionName);
+  return;
+}
       pendingAction = actionName;
       const inputEl = document.getElementById('passcodeInput');
       if (inputEl) inputEl.value = '';
