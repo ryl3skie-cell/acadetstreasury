@@ -27,7 +27,7 @@
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     .glass-card {
       background: rgba(15, 23, 42, 0.85);
@@ -172,6 +172,8 @@
       #studentAccountsGrid > div:hover, [id^="expensesContainer"] > div:hover, [id^="finesContainer"] > div:hover, [id^="duesContainer"] > div:hover { rotate: 0deg; scale: 1; }
     }
     #settingsModal > div, #passcodeModal > div, #gateCard { max-height: 92vh; overflow-y: auto; }
+    .chika-card button { padding: 3px 5px !important; line-height: 1; }
+    .chika-card:hover { rotate: 0deg; }
 
     /* ===== MOBILE SIZE FIX: nothing may be wider than the screen ===== */
     html { overflow-x: hidden; -webkit-text-size-adjust: 100%; max-width: 100%; }
@@ -212,6 +214,93 @@
       #passcodeModal > div, #settingsModal > div, #classPwModal > div { padding: 1.25rem; }
     }
   </style>
+
+  <style id="aqua-theme">
+    :root { --text:#e6f6ff; --muted:#93b4c7; --line:rgba(160,225,255,.24); --gloss:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,0) 46%); }
+    html { background: #031420 !important; }
+    body { font-family: 'Lexend', system-ui, sans-serif !important; color: var(--text); background: radial-gradient(70% 45% at 50% -8%, rgba(83,209,236,.40), transparent 70%), radial-gradient(45% 35% at 96% 30%, rgba(47,134,232,.30), transparent 70%), radial-gradient(40% 30% at 0% 78%, rgba(111,224,192,.18), transparent 70%), linear-gradient(180deg,#041a2b,#031420 62%) fixed !important; background-color: #031420 !important; }
+    body::before { content: ''; position: fixed; inset: -15%; z-index: 0; pointer-events: none; background: radial-gradient(35% 28% at 30% 20%, rgba(83,209,236,.24), transparent 70%), radial-gradient(30% 25% at 75% 60%, rgba(47,134,232,.24), transparent 70%); filter: blur(40px); animation: drift 26s ease-in-out infinite alternate; }
+    @keyframes drift { to { transform: translate(4%, 6%) scale(1.08); } }
+    button, input, select, textarea, h1, h2, h3, h4, p, span, div { font-family: 'Lexend', system-ui, sans-serif !important; }
+    h1, h2, h3 { font-weight: 500 !important; letter-spacing: -.01em !important; }
+    main, footer { position: relative; z-index: 1; }
+    *, *::before, *::after { text-shadow: none !important; }
+    [class*="blur-["], .bg-emoji, .float-ic, .marquee, .confetti { display: none !important; }
+    .animate-bounce, .animate-pulse, .animate-float, .shimmer-text, button:hover > i { animation: none !important; }
+    #statusBanner .animate-ping { animation: ping 1.4s cubic-bezier(0,0,.2,1) infinite !important; }
+    .tab-pop { animation: fadeIn .3s ease !important; } @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .text-3xl:empty, .text-4xl:empty, .text-5xl:empty, .text-7xl:empty { display: none; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+    /* colours */
+    .text-white, .text-slate-100, .text-slate-200, .text-slate-300 { color: var(--text) !important; }
+    .text-slate-400, .text-slate-500, .text-slate-600 { color: var(--muted) !important; }
+    [class*="text-cyan-"], [class*="text-blue-"], [class*="text-purple-"], [class*="text-indigo-"], [class*="text-teal-"] { color: #7fdcf5 !important; }
+    [class*="text-emerald-"] { color: #7ee8c7 !important; } [class*="text-rose-"] { color: #ff9a8d !important; } [class*="text-amber-"], [class*="text-yellow-"] { color: #f7d070 !important; }
+    .text-transparent { color: var(--text) !important; -webkit-text-fill-color: var(--text) !important; background: none !important; }
+    [class*="bg-slate-950"], [class*="bg-slate-900"] { background: rgba(3,20,32,.55) !important; }
+    [class*="bg-slate-800"], [class*="bg-slate-700"] { background: rgba(255,255,255,.07) !important; border-color: var(--line) !important; }
+    [class*="hover:bg-slate-"]:hover { background: rgba(255,255,255,.15) !important; }
+    [class*="bg-cyan-"], [class*="bg-blue-"], [class*="bg-purple-"], [class*="bg-indigo-"], [class*="bg-teal-"] { background: rgba(83,209,236,.13) !important; }
+    [class*="bg-emerald-"] { background: rgba(111,224,192,.13) !important; } [class*="bg-rose-"] { background: rgba(255,122,107,.15) !important; } [class*="bg-amber-"] { background: rgba(242,193,78,.15) !important; }
+    .bg-cyan-400, .bg-cyan-500, .bg-cyan-600, .bg-blue-600, .bg-indigo-600, .bg-teal-500, .bg-emerald-500, .bg-emerald-600, button[class*="bg-gradient"] { background: linear-gradient(135deg,#6fe6d2,#53b8f0) !important; color: #03202e !important; font-weight: 600; border: 0 !important; }
+    .bg-cyan-400 *, .bg-cyan-500 *, .bg-cyan-600 *, .bg-blue-600 *, .bg-emerald-600 *, button[class*="bg-gradient"] * { color: #03202e !important; }
+    .bg-rose-500, .bg-rose-600 { background: linear-gradient(135deg,#ff9a8d,#ff6b6b) !important; color: #2a0804 !important; }
+    button[class*="bg-gradient"]:hover, .bg-cyan-600:hover, .bg-blue-600:hover, .bg-emerald-600:hover { filter: brightness(1.1); }
+    div[class*="bg-gradient"], span[class*="bg-gradient"] { background: transparent !important; }
+    [class*="border-slate-"], [class*="border-cyan-"], [class*="border-blue-"], [class*="border-purple-"], [class*="border-indigo-"], [class*="border-emerald-"], [class*="border-rose-"], [class*="border-amber-"] { border-color: var(--line) !important; }
+    ::placeholder { color: #6f93a8 !important; }
+
+    /* shapes: pills for controls, glass panels with one sharp corner */
+    main button, .sticker-head button, #classGate button, .fixed button { border-radius: 999px !important; }
+    input:not([type="checkbox"]), select { border-radius: 999px !important; padding-left: 16px; } textarea { border-radius: 16px !important; }
+    input, select, textarea { background: rgba(3,20,32,.55) !important; color: var(--text) !important; border: 1.5px solid var(--line) !important; }
+    input:focus, select:focus, textarea:focus { border-color: #53d1ec !important; outline: none; box-shadow: 0 0 0 3px rgba(83,209,236,.18); }
+    button { transition: transform .15s ease, filter .15s ease, background .15s ease; } main button:hover { transform: translateY(-1px); } button:active { transform: scale(.96); }
+    .rounded-xl, .rounded-lg { border-radius: 14px !important; } [class*="px-"].rounded-full { border-radius: 999px !important; }
+    .glass-card { background: var(--gloss), rgba(12,46,70,.55) !important; backdrop-filter: blur(14px) saturate(1.2) !important; -webkit-backdrop-filter: blur(14px) saturate(1.2) !important; border: 1px solid var(--line) !important; border-radius: 26px 26px 26px 8px !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 12px 32px rgba(0,0,0,.35) !important; outline: 1px solid rgba(255,255,255,.07); outline-offset: -7px; rotate: none !important; animation: none !important; transition: transform .2s ease, border-color .2s ease; }
+    main .grid > .glass-card:nth-child(even) { border-radius: 26px 26px 8px 26px !important; }
+    main .grid > .glass-card:hover { transform: translateY(-3px); border-color: rgba(160,225,255,.5) !important; }
+    main .grid > .glass-card, #studentAccountsGrid > div, [id^="expensesContainer"] > div, [id^="finesContainer"] > div, [id^="duesContainer"] > div, [id^="revenueContainer"] > div, .chika-card { rotate: none !important; scale: 1 !important; }
+    #studentAccountsGrid > div, [id^="expensesContainer"] > div, [id^="finesContainer"] > div, [id^="duesContainer"] > div, [id^="revenueContainer"] > div, .chika-card { background: var(--gloss), rgba(255,255,255,.05) !important; border: 1px solid var(--line) !important; border-radius: 18px !important; backdrop-filter: blur(8px); transition: transform .15s ease, border-color .15s ease; }
+    #studentAccountsGrid > div:nth-child(3n+1) { background: var(--gloss), rgba(83,209,236,.11) !important; } #studentAccountsGrid > div:nth-child(3n+2) { background: var(--gloss), rgba(111,224,192,.11) !important; } #studentAccountsGrid > div:nth-child(3n) { background: var(--gloss), rgba(47,134,232,.16) !important; }
+    #studentAccountsGrid > div:hover, [id^="expensesContainer"] > div:hover, [id^="finesContainer"] > div:hover, [id^="duesContainer"] > div:hover { border-color: rgba(160,225,255,.55) !important; transform: translateY(-2px); }
+    .fixed.inset-0[class*="bg-slate-950"] { background: rgba(2,12,22,.7) !important; backdrop-filter: blur(6px) !important; }
+    #classGate { background: transparent !important; } #classGate::before { content: ''; position: absolute; inset: 0; background: #031420; z-index: -1; } .gate-mark { font-size: 42px; color: #53d1ec; margin-bottom: 8px; filter: none; }
+    #toastBox .toast { background: rgba(8,32,52,.92) !important; color: var(--text) !important; border: 1px solid var(--line) !important; border-radius: 999px !important; } #toastBox .toast * { color: var(--text) !important; }
+    .uppercase { letter-spacing: .14em !important; font-size: 10px; }
+    [id^="tabContent-"] h2::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; vertical-align: middle; background: radial-gradient(circle at 32% 30%, #fff 0, rgba(255,255,255,.2) 18%, transparent 19%), linear-gradient(135deg,#53d1ec,#2f86e8); box-shadow: 0 0 0 3px rgba(83,209,236,.2); }
+
+    /* header: floating glass pill */
+    .sticker-head { margin: 12px 12px 0 !important; border-radius: 999px !important; background: var(--gloss), rgba(10,40,64,.6) !important; backdrop-filter: blur(16px) !important; border: 1px solid var(--line) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 10px 28px rgba(0,0,0,.35) !important; position: relative; }
+    .sticker-head > div { padding-left: 22px; padding-right: 22px; }
+    .sticker-head::after { display: none; } .sticker-head h1 { font-size: 19px !important; font-weight: 600 !important; }
+    .sticker-head button { background: rgba(255,255,255,.08) !important; border: 1px solid var(--line) !important; } .sticker-head button:hover { background: rgba(255,255,255,.18) !important; }
+    .sticker-head [class*="bg-"]:not(button) { background: linear-gradient(135deg,#53d1ec,#2f86e8) !important; border: 0 !important; border-radius: 50% !important; } .sticker-head [class*="bg-"]:not(button) * { color: #031420 !important; }
+    #statusBanner { background: rgba(3,20,32,.65) !important; border-bottom: 1px solid var(--line) !important; backdrop-filter: blur(8px); } #subHead { background: transparent !important; border-bottom: 1px solid var(--line) !important; }
+
+    /* stat tiles: tinted glass */
+    #statBalance, #statCollected, #statSpent, #statPendingFines, #statUnpaidDues, #vaultTotalContrib, #vaultUnpaidTotal { font-weight: 600 !important; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+    .glow-emerald.glass-card { background: var(--gloss), linear-gradient(135deg, rgba(47,134,232,.8), rgba(83,209,236,.45)) !important; border-color: rgba(160,225,255,.6) !important; position: relative; overflow: hidden; }
+    .glow-cyan.glass-card { background: var(--gloss), linear-gradient(135deg, rgba(23,128,95,.75), rgba(111,224,192,.3)) !important; }
+    .glow-blue.glass-card { background: var(--gloss), linear-gradient(135deg, rgba(40,70,160,.7), rgba(47,134,232,.3)) !important; }
+    .glass-card:has(#statPendingFines) { background: var(--gloss), linear-gradient(135deg, rgba(242,193,78,.4), rgba(242,193,78,.1)) !important; }
+    .glass-card:has(#statUnpaidDues) { background: var(--gloss), linear-gradient(135deg, rgba(255,122,107,.45), rgba(255,122,107,.12)) !important; }
+    .glow-emerald, .glow-emerald *, .glow-cyan.glass-card *, .glow-blue.glass-card * { color: #fff !important; }
+    .glow-emerald [class*="bg-"]:not(button), .glow-cyan.glass-card [class*="bg-"]:not(button), .glow-blue.glass-card [class*="bg-"]:not(button) { background: rgba(255,255,255,.2) !important; border-color: transparent !important; }
+    .glow-emerald button { background: rgba(255,255,255,.2) !important; border: 1.5px solid rgba(255,255,255,.55) !important; color: #fff !important; }
+    .glow-emerald.glass-card::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 28px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28'%3E%3Cpath d='M0 14h30l6 0 6-10 8 20 6-10h24l4-4 4 4h32' fill='none' stroke='white' stroke-opacity='.7' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x 0 center; opacity: .55; animation: ecg 6s linear infinite; pointer-events: none; }
+    @keyframes ecg { to { background-position-x: -120px; } }
+
+    /* menu: floating frosted pill at the bottom, glowing blue active tab */
+    body .dock { position: fixed !important; left: 50% !important; right: auto !important; bottom: 16px !important; transform: translateX(-50%) !important; width: min(34rem, calc(100% - 1.5rem)) !important; max-width: none !important; background: var(--gloss), rgba(8,32,52,.74) !important; backdrop-filter: blur(18px) saturate(1.2) !important; border: 1px solid var(--line) !important; border-radius: 999px !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 14px 34px rgba(0,0,0,.5) !important; z-index: 40; padding-bottom: 0; }
+    body .dock > div { max-width: none; margin: 0; padding: 6px; gap: 2px; justify-content: space-between; }
+    body .dock button { flex: 1 1 0; min-width: 0; flex-direction: column; gap: 3px; padding: 8px 2px !important; border-radius: 999px !important; background: transparent !important; color: var(--muted) !important; font-size: 11px !important; font-weight: 500; border: 0 !important; filter: none; }
+    body .dock .tab-emoji { font-size: 17px; } body .dock button:hover { color: var(--text) !important; background: rgba(255,255,255,.08) !important; }
+    body .dock button[class*="bg-cyan"], body .dock button[class*="bg-gradient"], body .dock button[class*="bg-blue"] { background: linear-gradient(180deg,#5ab4ff,#2f6fe0) !important; color: #fff !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 4px 16px rgba(47,134,232,.55) !important; }
+    body .dock button[class*="bg-cyan"] *, body .dock button[class*="bg-gradient"] *, body .dock button[class*="bg-blue"] * { color: #fff !important; }
+    @media (max-width: 639px) { body .dock { bottom: 10px !important; } body .dock button { font-size: 10px !important; } }
+  </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-cyan-500 selection:text-white pb-32 medical-grid relative overflow-x-hidden">
 
@@ -220,13 +309,13 @@
     <div class="fixed -top-10 -left-10 w-72 h-72 bg-cyan-500/20 rounded-full filter blur-[100px] animate-float pointer-events-none"></div>
     <div class="fixed bottom-0 -right-10 w-72 h-72 bg-purple-600/20 rounded-full filter blur-[100px] animate-float pointer-events-none" style="animation-delay:-3s"></div>
     <div id="gateCard" class="glass-card relative rounded-3xl p-7 max-w-sm w-full text-center">
-      <div class="text-6xl mb-2 animate-bounce">🏦</div>
-      <h2 class="text-2xl font-black text-white">Class Members Only! 🔒</h2>
-      <p class="text-xs text-slate-400 mt-1 mb-5">Enter the class password to get into the Central Bank of Acad H(ets). Forgot it? Ask your officers 💙</p>
+      <div class="gate-mark"><i class="fa-solid fa-heart-pulse"></i></div>
+      <h2 class="text-2xl font-black text-white">Class Members Only! </h2>
+      <p class="text-xs text-slate-400 mt-1 mb-5">Enter the class password to get into the Central Bank of Acad H(ets). Forgot it? Ask your officers </p>
       <input id="gateInput" type="password" placeholder="Class password..." autocomplete="off" class="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-4 py-3 text-sm text-slate-100 text-center focus:outline-none focus:border-cyan-500 mb-2">
       <p id="gateMsg" class="text-xs h-4 mb-2 text-rose-300"></p>
       <label class="flex items-center justify-center gap-2 text-[11px] text-slate-400 mb-4"><input id="gateRemember" type="checkbox" checked class="accent-cyan-500"> Remember me on this device</label>
-      <button id="gateBtn" onclick="submitClassPassword()" class="w-full py-3 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 shadow-lg active:scale-95">Let me in! 🚪</button>
+      <button id="gateBtn" onclick="submitClassPassword()" class="w-full py-3 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 shadow-lg active:scale-95">Enter</button>
     </div>
   </div>
 
@@ -236,11 +325,11 @@
   <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 h-64 sm:h-80 bg-purple-600/10 rounded-full filter blur-[100px] pointer-events-none animate-float" style="animation-delay: -1.8s;"></div>
 
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-    <span class="bg-emoji" style="left:6%;top:70%;animation-delay:0s">🩺</span>
-    <span class="bg-emoji" style="left:22%;top:85%;animation-delay:-4s">💊</span>
-    <span class="bg-emoji" style="left:48%;top:90%;animation-delay:-8s">🧬</span>
-    <span class="bg-emoji" style="left:72%;top:80%;animation-delay:-2s">🫀</span>
-    <span class="bg-emoji" style="left:90%;top:88%;animation-delay:-6s">🔬</span>
+    <span class="bg-emoji" style="left:6%;top:70%;animation-delay:0s"></span>
+    <span class="bg-emoji" style="left:22%;top:85%;animation-delay:-4s"></span>
+    <span class="bg-emoji" style="left:48%;top:90%;animation-delay:-8s"></span>
+    <span class="bg-emoji" style="left:72%;top:80%;animation-delay:-2s"></span>
+    <span class="bg-emoji" style="left:90%;top:88%;animation-delay:-6s"></span>
   </div>
   <div id="toastBox" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center gap-2 pointer-events-none"></div>
   <!-- TOP STATUS BANNER -->
@@ -250,7 +339,7 @@
       <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 shadow-sm shadow-cyan-400"></span>
     </span>
     <i class="fa-solid fa-heart-pulse text-cyan-400 text-xs animate-pulse"></i>
-    <span id="bannerText">Live and synced with the whole class ⚡</span>
+    <span id="bannerText">Live: every change appears for the whole class as it happens.</span>
   </div>
 
   <!-- NAVIGATION HEADER -->
@@ -258,7 +347,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
       <div class="flex items-center gap-2.5 sm:gap-4">
         <div class="w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-cyan-400 via-blue-600 to-indigo-500 glow-cyan flex items-center justify-center shadow-lg shadow-cyan-500/30 flex-shrink-0">
-          <i class="fa-solid fa-vault text-slate-950 text-lg sm:text-2xl"></i>
+          <i class="fa-solid fa-heart-pulse text-slate-950 text-lg sm:text-2xl"></i>
         </div>
         <div class="min-w-0">
           <div class="flex items-center gap-1.5 sm:gap-2">
@@ -267,7 +356,7 @@
               <i class="fa-solid fa-notes-medical text-[10px]"></i> STEM 2026–2027
             </span>
           </div>
-          <p class="text-[11px] sm:text-xs text-slate-400 font-semibold truncate">Where our class money lives 💸</p>
+          <p class="text-[11px] sm:text-xs text-slate-400 font-semibold truncate">Class funds, expenses and dues </p>
         </div>
       </div>
 
@@ -289,7 +378,7 @@
   </header>
 
   <!-- SUB-HEADER REALTIME BACKUP CONTROLS -->
-  <div class="bg-slate-900/60 border-b border-slate-800/60 py-1.5 px-4 text-[11px] sm:text-xs font-medium">
+  <div id="subHead" class="bg-slate-900/60 border-b border-slate-800/60 py-1.5 px-4 text-[11px] sm:text-xs font-medium">
     <div class="max-w-7xl mx-auto flex items-center justify-between text-slate-400">
       <div class="flex items-center gap-1.5 sm:gap-2">
         <i class="fa-solid fa-database text-cyan-400 animate-pulse text-[10px]"></i>
@@ -304,18 +393,18 @@
   </div>
 
   <div class="marquee" aria-hidden="true"><div>
-    <span>💸 ₱5 every Friday, kaya natin 'to 💪 &nbsp;•&nbsp; 🧾 No receipt, no expense &nbsp;•&nbsp; 🩺 Future doctors, present and paying dues! &nbsp;•&nbsp; 🎉 Pitch in for the class! &nbsp;•&nbsp; 👀 Everyone can see everything here &nbsp;•&nbsp; </span>
-    <span>💸 ₱5 every Friday, kaya natin 'to 💪 &nbsp;•&nbsp; 🧾 No receipt, no expense &nbsp;•&nbsp; 🩺 Future doctors, present and paying dues! &nbsp;•&nbsp; 🎉 Pitch in for the class! &nbsp;•&nbsp; 👀 Everyone can see everything here &nbsp;•&nbsp; </span>
+    <span> ₱5 every Friday, kaya natin 'to  &nbsp;•&nbsp;  No receipt, no expense &nbsp;•&nbsp;  Future doctors, present and paying dues! &nbsp;•&nbsp;  Pitch in for the class! &nbsp;•&nbsp;  Everyone can see everything here &nbsp;•&nbsp; </span>
+    <span> ₱5 every Friday, kaya natin 'to  &nbsp;•&nbsp;  No receipt, no expense &nbsp;•&nbsp;  Future doctors, present and paying dues! &nbsp;•&nbsp;  Pitch in for the class! &nbsp;•&nbsp;  Everyone can see everything here &nbsp;•&nbsp; </span>
   </div></div>
   <!-- TABBED NAVIGATION -->
   <div class="dock fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-1.5rem)] max-w-3xl">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 flex gap-1.5 sm:gap-2 overflow-x-auto py-2 no-scrollbar">
-      <button onclick="switchTab('overview')" id="tabBtn-overview" class="px-3 sm:px-4 py-2 text-xs font-black rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-950 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🏠</span><span class="tab-label">Home</span></button>
-      <button onclick="switchTab('accounts')" id="tabBtn-accounts" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🔐</span><span class="tab-label">Vaults</span></button>
-      <button onclick="switchTab('expenses')" id="tabBtn-expenses" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🧾</span><span class="tab-label">Expenses</span></button>
-      <button onclick="switchTab('fines')" id="tabBtn-fines" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🌼</span><span class="tab-label">Reminders</span></button>
-      <button onclick="switchTab('dues')" id="tabBtn-dues" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">💰</span><span class="tab-label">Revenue</span></button>
-      <button onclick="switchTab('suggestions')" id="tabBtn-suggestions" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0 relative"><span class="tab-emoji">💬</span><span class="tab-label">Chika</span>
+      <button onclick="switchTab('overview')" id="tabBtn-overview" class="px-3 sm:px-4 py-2 text-xs font-black rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-950 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji"><i class="fa-solid fa-house-medical"></i></span><span class="tab-label">Home</span></button>
+      <button onclick="switchTab('accounts')" id="tabBtn-accounts" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji"><i class="fa-solid fa-vault"></i></span><span class="tab-label">Vaults</span></button>
+      <button onclick="switchTab('expenses')" id="tabBtn-expenses" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji"><i class="fa-solid fa-receipt"></i></span><span class="tab-label">Expenses</span></button>
+      <button onclick="switchTab('fines')" id="tabBtn-fines" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji"><i class="fa-solid fa-bell"></i></span><span class="tab-label">Reminders</span></button>
+      <button onclick="switchTab('dues')" id="tabBtn-dues" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji"><i class="fa-solid fa-coins"></i></span><span class="tab-label">Revenue</span></button>
+      <button onclick="switchTab('suggestions')" id="tabBtn-suggestions" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0 relative"><span class="tab-emoji"><i class="fa-solid fa-comments"></i></span><span class="tab-label">Threads</span>
         <span id="suggestionBadge" class="bg-cyan-400 text-slate-950 font-black text-[9px] px-1.5 py-0.5 rounded-full hidden shadow-sm">0</span>
       </button>
     </div>
@@ -335,7 +424,7 @@
           </div>
           <div>
             <h2 id="stemGreeting" class="text-lg sm:text-2xl font-black tracking-tight text-white">
-              Good Day, Alipin ng STEM! <span class="animate-pulse">🩺</span>
+              Good Day, Alipin ng STEM! <span class="animate-pulse"></span>
             </h2>
             <p class="text-xs text-slate-400 font-medium mt-0.5"><span id="heroTagline">Hey there! Let's check on our class money.</span></p>
           </div>
@@ -344,17 +433,17 @@
         <div class="flex items-center justify-between md:justify-end gap-3 border-t md:border-t-0 border-slate-800/80 pt-3 md:pt-0">
           <div id="liveClock" class="text-xs font-mono font-bold text-cyan-400 bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800/80 shadow-inner">00:00:00 AM</div>
           <button onclick="nextFunFact()" class="text-[11px] bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 px-3 py-1.5 rounded-xl border border-purple-500/40 font-bold transition flex items-center gap-1.5 active:scale-95 shadow-sm">
-            <i class="fa-solid fa-shuffle text-[10px]"></i> <span class="text-[10px] sm:text-[11px]">Next fact!</span>
+            <i class="fa-solid fa-shuffle text-[10px]"></i> <span class="text-[10px] sm:text-[11px]">Another fact</span>
           </button>
         </div>
       </div>
 
       <div class="mt-4 sm:mt-5 pt-4 border-t border-slate-800/70">
         <div class="flex items-center gap-2 text-purple-400 text-[10px] sm:text-xs font-black uppercase tracking-wider mb-1.5">
-          <i class="fa-solid fa-microscope text-xs animate-bounce"></i> Did You Know? (Med Edition) 🧠
+          <i class="fa-solid fa-microscope text-xs animate-bounce"></i> Med fact of the minute
         </div>
         <p id="funFactText" class="text-xs sm:text-sm text-slate-200 font-medium italic transition-opacity duration-300 leading-relaxed">
-          Digging up a surprising fact... 🔍
+          Loading a fact...
         </p>
         <div class="w-full bg-slate-950 h-1 rounded-full mt-3 overflow-hidden border border-slate-800/60">
           <div id="factProgressBar" class="bg-gradient-to-r from-purple-500 via-cyan-400 to-blue-500 h-full w-0 animate-progress"></div>
@@ -364,10 +453,10 @@
 
     <!-- STATS SUMMARY CARDS -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mb-8 sm:mb-10">
-      <div class="glass-card rounded-2xl p-4 sm:p-6 glow-emerald card-hover relative overflow-hidden group col-span-2 lg:row-span-2 flex flex-col justify-center"><div class="absolute -right-3 -bottom-4 text-7xl sm:text-9xl opacity-10 select-none">🐷</div>
-        <button onclick="promptPasscodeAction('editCash')" title="Edit cash on hand" class="relative z-10 self-start mt-3 bg-slate-800/90 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-2 rounded-xl active:scale-95">✏️ Edit</button>
+      <div class="glass-card rounded-2xl p-4 sm:p-6 glow-emerald card-hover relative overflow-hidden group col-span-2 lg:row-span-2 flex flex-col justify-center"><div class="absolute -right-3 -bottom-4 text-7xl sm:text-9xl opacity-10 select-none"></div>
+        <button onclick="promptPasscodeAction('editCash')" title="Edit cash on hand" class="relative z-10 self-start mt-3 bg-slate-800/90 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-2 rounded-xl active:scale-95"> Edit</button>
         <div class="flex justify-between items-start mb-2 sm:mb-3">
-          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Cash on Hand 💵</span>
+          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Cash on Hand </span>
           <div class="p-1.5 sm:p-2.5 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30">
             <i class="fa-solid fa-scale-balanced text-xs sm:text-sm"></i>
           </div>
@@ -378,7 +467,7 @@
 
       <div class="glass-card rounded-2xl p-4 sm:p-6 glow-cyan card-hover relative overflow-hidden group">
         <div class="flex justify-between items-start mb-2 sm:mb-3">
-          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Total Collected 📈</span>
+          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Total Collected </span>
           <div class="p-1.5 sm:p-2.5 bg-cyan-500/20 text-cyan-400 rounded-xl border border-cyan-500/30">
             <i class="fa-solid fa-chart-line text-xs sm:text-sm"></i>
           </div>
@@ -389,7 +478,7 @@
 
       <div class="glass-card rounded-2xl p-4 sm:p-6 glow-blue card-hover relative overflow-hidden group">
         <div class="flex justify-between items-start mb-2 sm:mb-3">
-          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Total Spent 💸</span>
+          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Total Spent </span>
           <div class="p-1.5 sm:p-2.5 bg-blue-500/20 text-blue-400 rounded-xl border border-blue-500/30">
             <i class="fa-solid fa-arrow-up-right-dots text-xs sm:text-sm"></i>
           </div>
@@ -400,18 +489,18 @@
 
       <div class="glass-card rounded-2xl p-4 sm:p-6 card-hover relative overflow-hidden group">
         <div class="flex justify-between items-start mb-2 sm:mb-3">
-          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Pending Fines 🌼</span>
+          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Pending Fines </span>
           <div class="p-1.5 sm:p-2.5 bg-rose-500/20 text-rose-400 rounded-xl border border-rose-500/30">
             <i class="fa-solid fa-circle-exclamation text-xs sm:text-sm"></i>
           </div>
         </div>
         <div id="statPendingFines" class="text-xl sm:text-4xl font-black text-rose-400 tracking-tight">₱0.00</div>
-        <p class="text-[10px] sm:text-xs text-slate-400 mt-1 sm:mt-2 font-semibold">Can still be paid, no rush 💛</p>
+        <p class="text-[10px] sm:text-xs text-slate-400 mt-1 sm:mt-2 font-semibold">Can still be paid, no rush </p>
       </div>
 
       <div class="glass-card rounded-2xl p-4 sm:p-6 card-hover relative overflow-hidden group">
         <div class="flex justify-between items-start mb-2 sm:mb-3">
-          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Unpaid Dues 🌼</span>
+          <span class="text-[10px] sm:text-xs font-black uppercase tracking-wider text-slate-400">Unpaid Dues </span>
           <div class="p-1.5 sm:p-2.5 bg-amber-500/20 text-amber-400 rounded-xl border border-amber-500/30">
             <i class="fa-solid fa-hourglass-half text-xs sm:text-sm"></i>
           </div>
@@ -427,7 +516,7 @@
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0">
             <div class="flex items-center gap-2 text-emerald-400 font-black text-xs sm:text-sm uppercase tracking-wider">
-              <i class="fa-solid fa-calendar-week"></i> Collected Contributions This Week 🔐
+              <i class="fa-solid fa-calendar-week"></i> Collected Contributions This Week 
             </div>
             <p id="weekRange" class="text-[11px] text-slate-400 mt-1 font-semibold">Mon – Sun</p>
           </div>
@@ -447,14 +536,14 @@
         <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-amber-500/40">
           <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3">
             <div class="flex items-center gap-2 text-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider">
-              <i class="fa-solid fa-cart-shopping"></i> 🛒 To Buy Announcements
+              <i class="fa-solid fa-cart-shopping"></i>  To Buy Announcements
             </div>
             <button onclick="promptPasscodeAction('addToBuy')" class="text-xs bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-3 py-1.5 rounded-xl transition font-bold flex items-center gap-1.5 active:scale-95">
               <i class="fa-solid fa-plus text-[10px]"></i> Add
             </button>
           </div>
           <div id="toBuyContainer" class="space-y-2.5">
-            <p class="text-slate-500 text-xs italic">Nothing to buy right now. 🎉</p>
+            <p class="text-slate-500 text-xs italic">Nothing to buy right now. </p>
           </div>
         </div>
 
@@ -462,17 +551,17 @@
         <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-purple-500/40">
           <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3 gap-2">
             <div class="flex items-center gap-2 text-purple-400 font-black text-xs sm:text-sm uppercase tracking-wider">
-              <i class="fa-solid fa-bullseye"></i> 🎯 Next Project
+              <i class="fa-solid fa-bullseye"></i>  Next Project
             </div>
             <div class="flex items-center gap-1.5">
-              <button onclick="promptPasscodeAction('editProject')" class="text-xs bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 px-3 py-1.5 rounded-xl transition font-bold active:scale-95">✏️ Set</button>
+              <button onclick="promptPasscodeAction('editProject')" class="text-xs bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 px-3 py-1.5 rounded-xl transition font-bold active:scale-95"> Set</button>
               <button onclick="promptPasscodeAction('addProjectItem')" class="text-xs bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 px-3 py-1.5 rounded-xl transition font-bold flex items-center gap-1.5 active:scale-95">
                 <i class="fa-solid fa-plus text-[10px]"></i> Item
               </button>
             </div>
           </div>
           <div id="nextProjectContainer">
-            <p class="text-slate-500 text-xs italic">No project planned yet. The Officers can set one with ✏️ Set.</p>
+            <p class="text-slate-500 text-xs italic">No project planned yet. The Officers can set one with  Set.</p>
           </div>
         </div>
       </div>
@@ -480,12 +569,12 @@
       <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-cyan-500/40">
         <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3">
           <div class="flex items-center gap-2 text-cyan-400 font-black text-xs sm:text-sm uppercase tracking-wider">
-            <i class="fa-solid fa-thumbtack text-cyan-400 rotate-45 animate-bounce"></i> 📌 Pinned Chika & Announcements
+            <i class="fa-solid fa-thumbtack text-cyan-400 rotate-45 animate-bounce"></i>  Pinned Announcements
           </div>
-          <button onclick="switchTab('suggestions')" class="text-xs text-cyan-400 hover:underline font-bold">Go to Chika →</button>
+          <button onclick="switchTab('suggestions')" class="text-xs text-cyan-400 hover:underline font-bold">Go to Threads</button>
         </div>
         <div id="homePinnedContainer" class="space-y-3">
-          <p class="text-slate-500 text-xs italic">No pinned announcements yet. The Officers can pin threads from the Chika tab!</p>
+          <p class="text-slate-500 text-xs italic">No pinned announcements yet. The Officers can pin threads from the Threads tab.</p>
         </div>
       </div>
 
@@ -497,7 +586,7 @@
                 <i class="fa-solid fa-receipt text-sm sm:text-base"></i>
               </div>
               <div>
-                <h2 class="font-bold text-base sm:text-lg text-white">Receipts Corner 🧾</h2>
+                <h2 class="font-bold text-base sm:text-lg text-white">Receipts Corner </h2>
                 <p class="text-[11px] sm:text-xs text-slate-400">Where did the money go?</p>
               </div>
             </div>
@@ -506,7 +595,7 @@
             </button>
           </div>
           <div id="expensesContainerOverview" class="space-y-2.5 sm:space-y-3 min-h-[140px]">
-            <p class="text-slate-500 text-xs sm:text-sm font-medium">No expenses yet. So thrifty! 🤑</p>
+            <p class="text-slate-500 text-xs sm:text-sm font-medium">No expenses recorded yet.</p>
           </div>
         </div>
 
@@ -517,7 +606,7 @@
                 <i class="fa-solid fa-gavel text-sm sm:text-base"></i>
               </div>
               <div>
-                <h2 class="font-bold text-base sm:text-lg text-white">Reminders Corner 🌼</h2>
+                <h2 class="font-bold text-base sm:text-lg text-white">Reminders Corner </h2>
                 <p class="text-[11px] sm:text-xs text-slate-400">Fines that can still be settled</p>
               </div>
             </div>
@@ -526,7 +615,7 @@
             </button>
           </div>
           <div id="finesContainerOverview" class="space-y-2.5 sm:space-y-3 min-h-[140px]">
-            <p class="text-slate-500 text-xs sm:text-sm font-medium">No pending fines! What a well-behaved class 😇</p>
+            <p class="text-slate-500 text-xs sm:text-sm font-medium">No pending fines.</p>
           </div>
         </div>
       </div>
@@ -538,17 +627,17 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
             <div class="flex items-center gap-2">
-              <h2 class="font-bold text-lg sm:text-xl text-white">48 Student Vaults 🔐 (₱5 Friday Dues)</h2>
+              <h2 class="font-bold text-lg sm:text-xl text-white">48 Student Vaults  (₱5 Friday Dues)</h2>
               <span class="bg-cyan-500/20 text-cyan-400 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-cyan-500/30">Auto ₱5 Deduct Every Friday</span>
             </div>
-            <p class="text-xs text-slate-400 mt-1">Everyone's balance lives here. Every Friday, ₱5 is deducted automatically, so keep that wallet ready! 😉</p>
+            <p class="text-xs text-slate-400 mt-1">Each student's balance. ₱5 is deducted automatically every Friday.</p>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
             <button onclick="promptPasscodeAction('undoVaultAction')" class="bg-amber-600/30 hover:bg-amber-600/40 text-amber-300 border border-amber-500/40 text-xs font-bold px-3 py-2 rounded-xl transition shadow-md flex items-center gap-1.5 active:scale-95">
-              <i class="fa-solid fa-rotate-left text-xs"></i> Oops, Undo! ↩️
+              <i class="fa-solid fa-rotate-left text-xs"></i> Undo last change
             </button>
             <button onclick="promptPasscodeAction('batchAddAdvance')" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg transition active:scale-95">
-              <i class="fa-solid fa-plus-circle"></i> Advance for Everyone 🎁
+              <i class="fa-solid fa-plus-circle"></i> Advance for Everyone 
             </button>
             <button onclick="promptPasscodeAction('batchDeduct')" class="bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 border border-amber-500/40 text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-md flex items-center gap-1.5 active:scale-95">
               <i class="fa-solid fa-minus-circle text-[10px]"></i> Deduct from Everyone
@@ -557,22 +646,22 @@
               <i class="fa-solid fa-arrow-rotate-left text-[10px]"></i> Reset All
             </button>
             <button onclick="promptPasscodeAction('forceFridaySync')" class="bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl transition active:scale-95">
-              <i class="fa-solid fa-rotate text-[10px]"></i> Friday Sync Now 🔄
+              <i class="fa-solid fa-rotate text-[10px]"></i> Friday Sync Now 
             </button>
           </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div class="rounded-2xl border-2 border-emerald-400/50 bg-emerald-500/10 p-4 flex items-center gap-3">
-          <div class="text-3xl">🪙</div>
+          <div class="text-3xl"></div>
           <div class="min-w-0">
             <p class="text-[11px] uppercase tracking-wider font-bold text-emerald-300">Total contributions as of now</p>
             <div id="vaultTotalContrib" class="text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight">₱0.00</div>
             <p id="vaultTotalSub" class="text-[11px] text-slate-400"></p>
           </div>
-          <button onclick="promptPasscodeAction('editContributions')" title="Edit total contributions" class="ml-auto flex-shrink-0 bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-2 rounded-xl active:scale-95">✏️ Edit</button>
+          <button onclick="promptPasscodeAction('editContributions')" title="Edit total contributions" class="ml-auto flex-shrink-0 bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-2 rounded-xl active:scale-95"> Edit</button>
         </div>
         <div class="rounded-2xl border-2 border-amber-400/50 bg-amber-500/10 p-4 flex items-center gap-3">
-          <div class="text-3xl">🌼</div>
+          <div class="text-3xl"></div>
           <div class="min-w-0">
             <p class="text-[11px] uppercase tracking-wider font-bold text-amber-300">Unpaid dues</p>
             <div id="vaultUnpaidTotal" class="text-2xl sm:text-3xl font-black text-amber-400 tracking-tight">₱0.00</div>
@@ -581,8 +670,8 @@
         </div>
         <div id="vaultSearchRow" class="flex items-center gap-2 mb-2">
           <div class="relative flex-1 min-w-0">
-            <input id="vaultSearch" type="text" autocomplete="off" oninput="applyVaultFilter()" placeholder="🔍 Search your name or vault #..." class="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl pl-4 pr-10 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500">
-            <button onclick="clearVaultSearch()" title="Clear" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white px-2 py-1 text-xs">✕</button>
+            <input id="vaultSearch" type="text" autocomplete="off" oninput="applyVaultFilter()" placeholder=" Search your name or vault #..." class="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl pl-4 pr-10 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500">
+            <button onclick="clearVaultSearch()" title="Clear" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white px-2 py-1 text-xs">&times;</button>
           </div>
           <button id="vaultShowAllBtn" onclick="toggleShowAllVaults()" class="whitespace-nowrap bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 text-xs font-bold px-3 py-2.5 rounded-2xl active:scale-95">Show all 48</button>
         </div>
@@ -597,8 +686,8 @@
       <div class="glass-card rounded-3xl p-5 sm:p-8 shadow-xl border border-cyan-500/30">
         <div class="flex items-center justify-between mb-6">
           <div>
-            <h2 class="font-bold text-lg sm:text-xl text-white">Expense Tracker 🧾</h2>
-            <p class="text-xs text-slate-400">Newest first, so nothing slips through</p>
+            <h2 class="font-bold text-lg sm:text-xl text-white">Expense Tracker </h2>
+            <p class="text-xs text-slate-400">Newest first</p>
           </div>
           <button onclick="promptPasscodeAction('addExpense')" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-lg active:scale-95">
             <i class="fa-solid fa-plus text-[10px]"></i> Log Expense
@@ -613,8 +702,8 @@
       <div class="glass-card rounded-3xl p-5 sm:p-8 shadow-xl border border-rose-500/30">
         <div class="flex items-center justify-between mb-6">
           <div>
-            <h2 class="font-bold text-lg sm:text-xl text-white">Reminders & Fines 🌼</h2>
-            <p class="text-xs text-slate-400">Late, no ID, or forgot something? It happens! We sort it out here, no stress 💛</p>
+            <h2 class="font-bold text-lg sm:text-xl text-white">Reminders & Fines </h2>
+            <p class="text-xs text-slate-400">Late submissions, missing IDs and other class fines. </p>
           </div>
           <button onclick="promptPasscodeAction('addFine')" class="bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-lg active:scale-95">
             <i class="fa-solid fa-plus text-[10px]"></i> Add Fine
@@ -629,7 +718,7 @@
       <div class="glass-card rounded-3xl p-5 sm:p-8 shadow-xl border border-emerald-500/30">
         <div class="flex items-center justify-between mb-6">
           <div>
-            <h2 class="font-bold text-lg sm:text-xl text-white">Revenue History 💰</h2>
+            <h2 class="font-bold text-lg sm:text-xl text-white">Revenue History </h2>
             <p id="revenueTotal" class="text-xs font-bold text-emerald-400 mb-0.5"></p>
             <p class="text-xs text-slate-400">Money our store made — name each sale so everyone knows where it came from!</p>
           </div>
@@ -643,38 +732,41 @@
 
     <!-- TAB 5: THREADS / SUGGESTIONS CONTENT -->
     <div id="tabContent-suggestions" class="hidden space-y-6">
-      <div class="glass-card rounded-3xl p-5 sm:p-8 shadow-xl border border-cyan-500/30 space-y-6">
-        <div>
-          <h2 class="font-bold text-lg sm:text-xl text-white">Chika Corner 💬</h2>
-          <p class="text-xs text-slate-400">Got an idea? A complaint? A hugot? Post it!</p>
+      <div class="glass-card rounded-3xl p-4 sm:p-8 shadow-xl border border-cyan-500/30 space-y-3 sm:space-y-4">
+        <div class="flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <h2 class="font-bold text-lg sm:text-xl text-white">Class Threads</h2>
+            <p class="text-xs text-slate-400">Suggestions, questions and announcements.</p>
+          </div>
+          <button type="button" onclick="toggleChikaForm()" class="flex-shrink-0 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-md active:scale-95"> Post</button>
         </div>
 
-        <form onsubmit="submitSuggestion(event)" class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 space-y-3">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <form id="chikaForm" onsubmit="submitSuggestion(event)" class="hidden bg-slate-950/80 rounded-2xl p-3 border border-slate-800 space-y-2">
+          <div class="grid grid-cols-2 gap-2">
             <input type="text" id="suggAuthor" placeholder="Your name or @handle" required class="bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-cyan-500">
             <select id="suggCategory" class="bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
-              <option value="Idea">💡 Class Idea</option>
-              <option value="Budget Request">💰 Budget Request</option>
-              <option value="Feedback">📝 Feedback</option>
-              <option value="Announcement">📢 Announcement</option>
+              <option value="Idea"> Class Idea</option>
+              <option value="Budget Request"> Budget Request</option>
+              <option value="Feedback"> Feedback</option>
+              <option value="Announcement"> Announcement</option>
             </select>
           </div>
-          <textarea id="suggText" rows="2" placeholder="What's the chika? Ideas, hugot, complaints... anything goes! ✨" required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-cyan-500 resize-none"></textarea>
+          <textarea id="suggText" rows="2" placeholder="Write a suggestion, question or announcement." required class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-cyan-500 resize-none"></textarea>
           <div class="flex justify-end">
             <button type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-md hover:from-cyan-400 hover:to-blue-500 transition">
-              <i class="fa-solid fa-paper-plane text-[10px]"></i> Post it! 🚀
+              <i class="fa-solid fa-paper-plane text-[10px]"></i> Post it! 
             </button>
           </div>
         </form>
 
-        <div class="space-y-3">
+        <div class="space-y-1.5">
           <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
             <i class="fa-solid fa-thumbtack rotate-45"></i> Pinned Threads
           </h3>
           <div id="pinnedSuggestionsContainer" class="space-y-1.5"></div>
         </div>
 
-        <div class="space-y-3 pt-2">
+        <div class="space-y-1.5">
           <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">All Recent Threads <span id="chikaCount" class="normal-case text-slate-500 font-semibold"></span></h3>
           <div id="suggestionsContainerFull" class="space-y-1.5"></div>
         </div>
@@ -685,9 +777,8 @@
 
   <!-- FOOTER -->
   <footer class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 text-center text-xs text-slate-500 space-y-1">
-    <p class="font-semibold text-slate-400">Central Bank of Acad H(ets) 🏦 It's our money, let's look after it!</p>
-    <p>Made by Cute (Auditor) with 💙 (and a little kaba) for the class. No secrets with the money here! Tested and Polsihed with the help of the Officers and Co-Idiots hehe</p>
-    
+    <p class="font-semibold text-slate-400">Central Bank of Acad H(ets)  Class treasury</p>
+    <p>Kept by the class treasurer. Every figure is visible to all members.</p>
   </footer>
 
   <!-- WORDED PASSCODE VERIFICATION MODAL -->
@@ -696,8 +787,8 @@
       <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4 mx-auto">
         <i class="fa-solid fa-user-shield text-lg sm:text-xl"></i>
       </div>
-      <h3 class="text-lg sm:text-xl font-bold text-center text-white">Psst, Officers only! 🕵️</h3>
-      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Officers only! Pick your position and enter the secret passcode 🤫</p>
+      <h3 class="text-lg sm:text-xl font-bold text-center text-white">Psst, Officers only! </h3>
+      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Officers only. Select your position and enter the passcode.</p>
       <label class="block text-xs font-semibold text-slate-400 mb-1">Your officer position</label>
       <select id="officerSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500 mb-3">
         <option value="">Select position...</option>
@@ -723,7 +814,7 @@
         <i class="fa-solid fa-key text-lg sm:text-xl"></i>
       </div>
       <h3 class="text-lg sm:text-xl font-bold text-center text-white">Change Passcode</h3>
-      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Change the officers' passcode. (The class password has its own 🔒 menu.)</p>
+      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Change the officers' passcode. (The class password has its own  menu.)</p>
       
       <label class="block text-xs font-semibold text-slate-400 mb-1">Current Passcode</label>
       <label class="block text-xs font-semibold text-slate-400 mb-1">Your officer position</label>
@@ -754,7 +845,7 @@
   <!-- CLASS PASSWORD OPTIONS MODAL -->
   <div id="classPwModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
     <div class="glass-card rounded-3xl p-6 sm:p-7 max-w-sm w-full max-h-[92vh] overflow-y-auto shadow-2xl">
-      <div class="text-4xl text-center mb-1">🔒</div>
+      <div class="text-4xl text-center mb-1"></div>
       <h3 class="text-lg sm:text-xl font-bold text-center text-white">Class Password</h3>
       <p class="text-xs text-center text-slate-400 mt-1 mb-4">Decide who gets into the site. Enter the officers' passcode (and pick your position) to make changes.</p>
 
@@ -815,23 +906,23 @@
     function updateGreetingAndClock() {
       const now = new Date();
       const hours = now.getHours();
-      let greeting = "Hello, Alipin ng STEM!";
+      let greeting = "Hello, Alipin ng STEM.";
       let iconClass = "fa-solid fa-sun text-yellow-300";
 
       if (hours >= 5 && hours < 12) {
-        greeting = "Good morning, Alipin ng STEM! Coffee first ☕";
+        greeting = "Good morning, Alipin ng STEM. ";
         iconClass = "fa-solid fa-sun text-amber-300";
       } else if (hours >= 12 && hours < 18) {
-        greeting = "Hello, Alipin ng STEM! Still surviving? 😎";
+        greeting = "Good afternoon, Alipin ng STEM. ";
         iconClass = "fa-solid fa-cloud-sun text-cyan-300";
       } else {
-        greeting = "Good evening, Alipin ng STEM! Review mode on 🌙";
+        greeting = "Good evening, Alipin ng STEM. ";
         iconClass = "fa-solid fa-moon text-indigo-300";
       }
 
       const stemGreetingEl = document.getElementById('stemGreeting');
       if (stemGreetingEl) {
-        stemGreetingEl.innerHTML = `${greeting} <span class="animate-pulse">🩺</span>`;
+        stemGreetingEl.innerHTML = `${greeting} <span class="animate-pulse"></span>`;
       }
       const iconEl = document.getElementById('greetingIcon');
       if (iconEl) {
@@ -900,7 +991,7 @@
     let pendingAction = null;
     let currentOfficer = '';
     window.byField = () => currentOfficer ? { by: currentOfficer } : {};
-    window.readOfficer = (id) => { const el = document.getElementById(id); const v = el ? el.value : ''; if (!v) { alert('Please pick your officer position first 🙂'); return null; } return v; };
+    window.readOfficer = (id) => { const el = document.getElementById(id); const v = el ? el.value : ''; if (!v) { alert('Please pick your officer position first '); return null; } return v; };
     // Editing stays unlocked for 5 minutes after a correct passcode (kept in memory only, so closing the tab re-locks it)
     const UNLOCK_MS = 5 * 60 * 1000;
     let unlockedUntil = 0;
@@ -952,12 +1043,12 @@
         const actionToRun = pendingAction;
         unlockedUntil = Date.now() + UNLOCK_MS;
         clearTimeout(relockTimer);
-        relockTimer = setTimeout(() => { if (window.showToast) showToast('🔒 Editing is locked again. The passcode will be asked next time.'); }, UNLOCK_MS);
-        if (window.showToast) showToast('🔓 Unlocked for 5 minutes as ' + officer);
+        relockTimer = setTimeout(() => { if (window.showToast) showToast(' Editing is locked again. The passcode will be asked next time.'); }, UNLOCK_MS);
+        if (window.showToast) showToast(' Unlocked for 5 minutes as ' + officer);
         window.closePasscodeModal();
         window.executeProtectedAction(actionToRun);
       } else {
-        alert("Oops, wrong passcode! Try again 😅");
+        alert("Wrong passcode. Try again.");
       }
     };
 
@@ -995,7 +1086,7 @@
       masterPasscode = newVal;
       localStorage.setItem('treasurerPasscode', masterPasscode);
       if (db) db.ref('config/passcode').set(masterPasscode);
-      alert("Passcode updated! 🔑");
+      alert("Passcode updated! ");
       window.closeSettingsModal();
     };
 
@@ -1188,7 +1279,7 @@
             for (let i = 1; i <= 48; i++) updates[`accounts/acc_${i}/balance`] = 0;
             db.ref('lastVaultState').set(accounts);
             db.ref().update(updates);
-            if (window.showToast) showToast('🧹 All vaults reset to ₱0.00');
+            if (window.showToast) showToast(' All vaults reset to ₱0.00');
           });
         }
       } else if (action === 'editCash') {
@@ -1204,7 +1295,7 @@
           const val = parseFloat(input);
           if (isNaN(val)) { alert("Please enter a valid number."); return; }
           db.ref('config/cashAdjustment').set(r2(val - base));
-          if (window.showToast) showToast('💵 Cash on hand updated to ₱' + val.toFixed(2));
+          if (window.showToast) showToast(' Cash on hand updated to ₱' + val.toFixed(2));
         });
       } else if (action.startsWith('editContributed_')) {
         const accKey = action.replace('editContributed_', '');
@@ -1232,7 +1323,7 @@
           const newTotal = parseFloat(input);
           if (isNaN(newTotal)) { alert("Please enter a valid number."); return; }
           db.ref('config/pastContributions').set(newTotal - vaultSum);
-          if (window.showToast) showToast('🪙 Total contributions updated to ₱' + newTotal.toFixed(2));
+          if (window.showToast) showToast(' Total contributions updated to ₱' + newTotal.toFixed(2));
         });
       } else if (action.startsWith('deductAccount_')) {
         const accKey = action.replace('deductAccount_', '');
@@ -1281,7 +1372,7 @@
                 db.ref('dues').push({ ts: Date.now(), type: 'vault', ...window.byField(), amount: covered, date: `Vault deduction: everyone (${window.localDateStr()})` });
               }
             } else { alert(msg); }
-            if (window.showToast) showToast('➖ Deducted ₱' + amt.toFixed(2) + ' from every vault');
+            if (window.showToast) showToast(' Deducted ₱' + amt.toFixed(2) + ' from every vault');
           });
         }
       } else if (action === 'forceFridaySync') {
@@ -1399,6 +1490,13 @@
       }
     };
 
+    window.toggleChikaForm = function() {
+      const f = document.getElementById('chikaForm');
+      if (!f) return;
+      f.classList.toggle('hidden');
+      if (!f.classList.contains('hidden')) { const a = document.getElementById('suggAuthor'); if (a) a.focus(); }
+    };
+
     window.submitSuggestion = function(e) {
       e.preventDefault();
       let author = document.getElementById('suggAuthor').value.trim().replace(/^@/, '');
@@ -1415,6 +1513,7 @@
           date: new Date().toLocaleDateString() + ' • ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         });
         document.getElementById('suggText').value = '';
+        const cf = document.getElementById('chikaForm'); if (cf) cf.classList.add('hidden');
       }
     };
 
@@ -1451,24 +1550,20 @@
       const pinCls = pinned ? 'text-cyan-400 hover:text-cyan-300' : 'text-slate-500 hover:text-cyan-400';
       const pinIcon = pinned ? 'fa-thumbtack rotate-45' : 'fa-thumbtack';
       return `
-          <div class="px-2.5 py-1.5 ${pinned ? 'bg-slate-950/90 border-cyan-500/40' : 'bg-slate-950/70 border-slate-800/80 hover:border-cyan-500/30'} rounded-xl border transition">
+          <div class="chika-card px-2 py-1 ${pinned ? 'bg-slate-950/90 border-cyan-500/40' : 'bg-slate-950/70 border-slate-800/80 hover:border-cyan-500/30'} rounded-lg border transition">
             <div class="flex items-center gap-1.5">
-              <div class="w-5 h-5 rounded-full ${window.getAvatarColor(s.author)} flex items-center justify-center text-white font-bold text-[8px] uppercase flex-shrink-0">${escapeHtml(String(s.author).substring(1, 3))}</div>
+              <div class="w-4 h-4 rounded-full ${window.getAvatarColor(s.author)} flex items-center justify-center text-white font-bold text-[7px] uppercase flex-shrink-0">${escapeHtml(String(s.author).substring(1, 3))}</div>
               <span class="text-[11px] font-bold ${pinned ? 'text-cyan-300' : 'text-white'} truncate">${escapeHtml(s.author)}</span>
               <span class="bg-cyan-500/10 text-cyan-400 text-[8px] font-bold px-1.5 rounded-full border border-cyan-500/20 flex-shrink-0">${escapeHtml(s.category || 'Idea')}</span>
               <span class="text-[9px] text-slate-500 truncate min-w-0">${s.date}${pinned && s.pinnedBy ? ' · pinned by ' + escapeHtml(s.pinnedBy) : ''}</span>
-              <div class="flex items-center gap-0.5 ml-auto flex-shrink-0">
-                <button onclick="promptPasscodeAction('togglePinSuggestion_${s.id}')" class="${pinCls} text-[10px] p-0.5" title="${pinTitle}"><i class="fa-solid ${pinIcon}"></i></button>
-                <button onclick="promptPasscodeAction('editSuggestion_${s.id}')" class="text-slate-500 hover:text-cyan-400 text-[10px] p-0.5" title="Edit thread"><i class="fa-solid fa-pen"></i></button>
-                <button onclick="promptPasscodeAction('deleteSuggestion_${s.id}')" class="text-slate-500 hover:text-rose-400 text-[10px] p-0.5" title="Delete thread"><i class="fa-solid fa-trash-can"></i></button>
+              <div class="flex items-center ml-auto flex-shrink-0">
+                <button onclick="upvoteSuggestion('${s.id}', ${s.upvotes || 0})" class="hover:text-cyan-400 flex items-center gap-0.5 text-[10px] text-slate-400 transition"><i class="fa-regular fa-heart"></i> ${s.upvotes || 0}</button>
+                <button onclick="promptPasscodeAction('togglePinSuggestion_${s.id}')" class="${pinCls} text-[10px]" title="${pinTitle}"><i class="fa-solid ${pinIcon}"></i></button>
+                <button onclick="promptPasscodeAction('editSuggestion_${s.id}')" class="text-slate-500 hover:text-cyan-400 text-[10px]" title="Edit thread"><i class="fa-solid fa-pen"></i></button>
+                <button onclick="promptPasscodeAction('deleteSuggestion_${s.id}')" class="text-slate-500 hover:text-rose-400 text-[10px]" title="Delete thread"><i class="fa-solid fa-trash-can"></i></button>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-2 pl-6.5" style="padding-left:26px">
-              <p class="text-xs ${pinned ? 'text-slate-200' : 'text-slate-300'} leading-snug">${escapeHtml(s.text)}</p>
-              <button onclick="upvoteSuggestion('${s.id}', ${s.upvotes || 0})" class="hover:text-cyan-400 flex items-center gap-1 text-[10px] text-slate-400 transition flex-shrink-0 pt-0.5">
-                <i class="fa-regular fa-heart"></i> ${s.upvotes || 0}
-              </button>
-            </div>
+            <p onclick="this.classList.toggle('line-clamp-2')" title="Tap to expand" class="line-clamp-2 cursor-pointer text-xs ${pinned ? 'text-slate-200' : 'text-slate-300'} leading-snug" style="padding-left:22px">${escapeHtml(s.text)}</p>
           </div>`;
     };
 
@@ -1520,11 +1615,11 @@
           totalVaultBal += bal; if (bal > 0) advCount++; if (bal < 0) topUpCount++;
           const contrib = parseFloat(accData.contributed) || 0; totalContributed += contrib; totalAdvance += Math.max(bal, 0); if (bal < 0) totalUnpaid += -bal;
           
-          let statusBadge = '<span class="text-[9px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold">Advance! 🤑</span>';
+          let statusBadge = '<span class="text-[9px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold">Advance! </span>';
           if (bal < 0) {
-            statusBadge = '<span class="text-[9px] bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-0.5 rounded-full font-bold">Unpaid dues 🌼</span>';
+            statusBadge = '<span class="text-[9px] bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-0.5 rounded-full font-bold">Unpaid dues </span>';
           } else if (bal === 0) {
-            statusBadge = '<span class="text-[9px] bg-slate-800 text-slate-400 border border-slate-700 px-2 py-0.5 rounded-full font-bold">All squared 👌</span>';
+            statusBadge = '<span class="text-[9px] bg-slate-800 text-slate-400 border border-slate-700 px-2 py-0.5 rounded-full font-bold">All squared </span>';
           }
 
           accountsGridHtml += `
@@ -1591,7 +1686,7 @@
             </div>
             <p class="text-xs text-slate-200 leading-relaxed">${escapeHtml(s.text)}</p>
           </div>
-        `).join('') : '<p class="text-slate-500 text-xs italic">No pinned announcements yet. The Officers can pin threads from the Chika tab!</p>';
+        `).join('') : '<p class="text-slate-500 text-xs italic">No pinned announcements yet. The Officers can pin threads from the Threads tab.</p>';
         document.getElementById('homePinnedContainer').innerHTML = homePinnedHtml;
 
         // Vault-collected money vs store revenue (old entries are sorted by their label)
@@ -1646,14 +1741,14 @@
         if (tb) tb.innerHTML = toBuy.length ? toBuy.map(t => `
           <div class="flex items-start justify-between gap-2 p-3 bg-slate-950/90 rounded-2xl border border-amber-500/30">
             <div class="min-w-0">
-              <p class="text-xs sm:text-sm font-semibold text-slate-100 leading-snug">🛒 ${escapeHtml(t.text)}</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-100 leading-snug"> ${escapeHtml(t.text)}</p>
               <p class="text-[10px] text-slate-500 mt-0.5">${escapeHtml(t.date || '')}${t.by ? ' · by ' + escapeHtml(t.by) : ''}</p>
             </div>
             <div class="flex items-center gap-1.5 flex-shrink-0">
               ${t.amount !== undefined ? `<span class="text-xs sm:text-sm font-bold text-amber-400">₱${(parseFloat(t.amount) || 0).toFixed(2)}</span>` : ''}
               <button onclick="promptPasscodeAction('deleteToBuy_${t.id}')" class="p-1 text-xs text-slate-400 hover:text-rose-400 transition"><i class="fa-solid fa-trash-can"></i></button>
             </div>
-          </div>`).join('') : '<p class="text-slate-500 text-xs italic">Nothing to buy right now. 🎉</p>';
+          </div>`).join('') : '<p class="text-slate-500 text-xs italic">Nothing to buy right now. </p>';
 
         // ---- Next Project ----
         const proj = data.nextProject || null;
@@ -1663,14 +1758,14 @@
         const np = document.getElementById('nextProjectContainer');
         if (np) {
           if (!proj && !projItems.length) {
-            np.innerHTML = '<p class="text-slate-500 text-xs italic">No project planned yet. The Officers can set one with ✏️ Set.</p>';
+            np.innerHTML = '<p class="text-slate-500 text-xs italic">No project planned yet. The Officers can set one with  Set.</p>';
           } else {
             const gap = projTotal - cashNow;
             np.innerHTML = `
               <div class="flex items-start justify-between gap-2 mb-3">
                 <div class="min-w-0">
                   <p class="text-sm sm:text-base font-bold text-white">${escapeHtml((proj && proj.name) || 'Untitled project')}</p>
-                  ${proj && proj.target ? `<p class="text-[11px] text-purple-300 font-semibold">📅 ${escapeHtml(proj.target)}</p>` : ''}
+                  ${proj && proj.target ? `<p class="text-[11px] text-purple-300 font-semibold"> ${escapeHtml(proj.target)}</p>` : ''}
                   ${proj && proj.by ? `<p class="text-[10px] text-slate-500">Set by ${escapeHtml(proj.by)}</p>` : ''}
                 </div>
                 <button onclick="promptPasscodeAction('clearProject')" title="Clear project" class="p-1 text-xs text-slate-500 hover:text-rose-400 transition"><i class="fa-solid fa-trash-can"></i></button>
@@ -1695,7 +1790,7 @@
                 <span class="text-[11px] font-black uppercase tracking-wider text-slate-400">Total needed</span>
                 <span class="text-lg sm:text-xl font-black text-purple-300">₱${projTotal.toFixed(2)}</span>
               </div>
-              ${projItems.length ? `<p class="text-[11px] mt-1 font-semibold ${gap > 0 ? 'text-amber-400' : 'text-emerald-400'}">${gap > 0 ? `Short by ₱${gap.toFixed(2)} vs. cash on hand` : 'Cash on hand already covers this ✅'}</p>` : ''}`;
+              ${projItems.length ? `<p class="text-[11px] mt-1 font-semibold ${gap > 0 ? 'text-amber-400' : 'text-emerald-400'}">${gap > 0 ? `Short by ₱${gap.toFixed(2)} vs. cash on hand` : 'Cash on hand already covers this '}</p>` : ''}`;
           }
         }
 
@@ -1721,7 +1816,7 @@
               </div>
             </div>
           </div>
-        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No expenses yet. So thrifty! 🤑</p>';
+        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No expenses recorded yet.</p>';
         document.getElementById('expensesContainerOverview').innerHTML = expHtml;
         document.getElementById('expensesContainerFull').innerHTML = expHtml;
 
@@ -1733,7 +1828,7 @@
                 <i class="fa-solid ${f.paid ? 'fa-check-double' : 'fa-gavel'}"></i>
               </div>
               <div class="min-w-0">
-                <p class="text-xs sm:text-sm font-semibold text-slate-100 truncate">${escapeHtml(f.student)} ${f.paid ? '<span class="text-[9px] bg-cyan-500/10 text-cyan-400 px-1.5 py-0.2 rounded-full ml-1">Paid 🎉</span>' : ''}</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-100 truncate">${escapeHtml(f.student)} ${f.paid ? '<span class="text-[9px] bg-cyan-500/10 text-cyan-400 px-1.5 py-0.2 rounded-full ml-1">Paid </span>' : ''}</p>
                 <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium truncate">${escapeHtml(f.reason)}${f.by ? ' · added by ' + escapeHtml(f.by) : ''}${f.paid && f.paidBy ? ' · marked paid by ' + escapeHtml(f.paidBy) : ''}${f.editedBy ? ' · edited by ' + escapeHtml(f.editedBy) : ''}</p>
               </div>
             </div>
@@ -1748,7 +1843,7 @@
               </div>
             </div>
           </div>
-        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No pending fines! What a well-behaved class 😇</p>';
+        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No pending fines.</p>';
         document.getElementById('finesContainerOverview').innerHTML = finesHtml;
         document.getElementById('finesContainerFull').innerHTML = finesHtml;
 
@@ -1772,7 +1867,7 @@
               </div>
             </div>
           </div>
-        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No revenue yet... who will go first? 👀</p>';
+        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No revenue yet... who will go first? </p>';
         document.getElementById('duesContainerFull').innerHTML = duesHtml;
         const rt = document.getElementById('revenueTotal');
         if (rt) rt.textContent = `Total store revenue: ₱${revenueEntries.reduce((a, d) => a + (parseFloat(d.amount) || 0), 0).toFixed(2)}`;
@@ -1786,11 +1881,11 @@
           suggBadge.classList.add('hidden');
         }
 
-        const pinnedHtml = pinnedList.length ? pinnedList.map(s => window.chikaCard(s, true)).join('') : '<p class="text-slate-500 text-xs italic">Nothing pinned yet. Go pin something! 📌</p>';
+        const pinnedHtml = pinnedList.length ? pinnedList.map(s => window.chikaCard(s, true)).join('') : '<p class="text-slate-500 text-xs italic">Nothing pinned yet. Go pin something! </p>';
         document.getElementById('pinnedSuggestionsContainer').innerHTML = pinnedHtml;
 
         const regularList = suggestions.filter(s => !isPinnedThread(s));
-        const suggHtmlFull = regularList.length ? regularList.map(s => window.chikaCard(s, false)).join('') : '<p class="text-slate-500 text-xs sm:text-sm">So quiet... start a chika! 🦗</p>';
+        const suggHtmlFull = regularList.length ? regularList.map(s => window.chikaCard(s, false)).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No threads yet.</p>';
         document.getElementById('suggestionsContainerFull').innerHTML = suggHtmlFull;
         const cc = document.getElementById('chikaCount'); if (cc) cc.textContent = `(${regularList.length} message${regularList.length === 1 ? '' : 's'}, pinned ones are listed above)`;
 
@@ -1809,8 +1904,8 @@
       box.appendChild(t);
       setTimeout(() => { t.style.opacity = 0; setTimeout(() => t.remove(), 400); }, 3200);
     };
-    window.burstConfetti = function(list) {
-      const bits = list || ['🎉','✨','💰','🪙','💙','🩺','⭐'];
+    window.burstConfetti = function(list) { return;
+      const bits = list || ['','','','','','',''];
       for (let i = 0; i < 28; i++) {
         const c = document.createElement('span');
         c.className = 'confetti';
@@ -1823,20 +1918,8 @@
       }
     };
 
-    const taglines = [
-      "Hey there! Let's check on our class money. 🕵️",
-      "Nothing slips through here, everything has a receipt! 🧾",
-      "Class money: safe with us. 🔒",
-      "Future doctors, nurses, scientists... at treasurers! 🩺",
-      "Thank you to everyone who pitches in! 💙",
-      "Pag may ambag, may pag-asa! (Where there's a contribution, there's hope!) 💪"
-    ];
-    const bannerMsgs = [
-      "Live and synced with the whole class ⚡",
-      "Real-time updates, nothing hidden! 👀",
-      "Friday = ₱5 again, get that wallet ready! 💸",
-      "Pro tip: refresh the page if you ever doubt the numbers 😏"
-    ];
+    const taglines = ["Here is where the class money stands today."];
+    const bannerMsgs = ["Live: every change appears for the whole class as it happens."];
     window.addEventListener('DOMContentLoaded', () => {
       const tg = document.getElementById('heroTagline');
       if (tg) tg.textContent = taglines[Math.floor(Math.random() * taglines.length)];
@@ -1847,7 +1930,7 @@
       }, 7000);
       // sparkle on the shuffle button
       document.querySelectorAll('button[onclick="nextFunFact()"]').forEach(b =>
-        b.addEventListener('click', () => showToast('🧠 Brain food, served!')));
+        b.addEventListener('click', () => showToast(' Brain food, served!')));
       // bump the numbers when they change
       ['statBalance','statCollected','statSpent','statPendingFines','statUnpaidDues'].forEach(id => {
         const el = document.getElementById(id);
@@ -1890,8 +1973,8 @@
       const msg = document.getElementById('gateMsg');
       const btn = document.getElementById('gateBtn');
       const entered = input.value.trim().toLowerCase();
-      if (!entered) { msg.textContent = 'Please type the password first 😊'; return; }
-      if (!(window.crypto && crypto.subtle)) { msg.textContent = 'Please open the site using an https link 🙏'; return; }
+      if (!entered) { msg.textContent = 'Please type the password first '; return; }
+      if (!(window.crypto && crypto.subtle)) { msg.textContent = 'Please open the site using an https link '; return; }
       btn.disabled = true;
       const h = await window.sha256Hex(entered);
       const real = await window.getClassHash();
@@ -1900,9 +1983,9 @@
         if (document.getElementById('gateRemember').checked) localStorage.setItem('classUnlock', h);
         window.unlockSite();
         burstConfetti();
-        showToast('Welcome to the Central Bank! 🎉');
+        showToast('Welcome to the Central Bank! ');
       } else {
-        msg.textContent = 'Hmm, wrong password. Try again! 🙈';
+        msg.textContent = 'Wrong password. Try again.';
         const card = document.getElementById('gateCard');
         card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
         input.select();
@@ -1943,7 +2026,7 @@
       if (typeof db !== 'undefined' && db) await db.ref('config/classPasswordHash').set(h);
       localStorage.setItem('classUnlock', h);
       window.closeClassPwModal();
-      showToast('🔑 Class password updated! Share the new one with your classmates.');
+      showToast(' Class password updated! Share the new one with your classmates.');
     };
     window.resetClassPassword = async function() {
       if (!cpAuthOk()) return;
@@ -1951,7 +2034,7 @@
       if (typeof db !== 'undefined' && db) await db.ref('config/classPasswordHash').remove();
       localStorage.setItem('classUnlock', DEFAULT_CLASS_HASH);
       window.closeClassPwModal();
-      showToast('🔑 Class password is back to the default.');
+      showToast(' Class password is back to the default.');
     };
     window.lockThisDevice = function() {
       localStorage.removeItem('classUnlock');
@@ -1981,8 +2064,8 @@
       const hint = document.getElementById('vaultHint');
       const count = document.getElementById('vaultCount');
       if (!cards.length) { hint.classList.add('hidden'); count.textContent = ''; return; }
-      if (q && shown === 0) { hint.textContent = 'No vault found for "' + q + '" 🔍 Check the spelling!'; hint.classList.remove('hidden'); }
-      else if (!q && !window.showAllVaults) { hint.textContent = 'Type your name above to find your vault 🔍'; hint.classList.remove('hidden'); }
+      if (q && shown === 0) { hint.textContent = 'No vault found for "' + q + '"  Check the spelling!'; hint.classList.remove('hidden'); }
+      else if (!q && !window.showAllVaults) { hint.textContent = 'Type your name above to find your vault '; hint.classList.remove('hidden'); }
       else hint.classList.add('hidden');
       count.textContent = shown ? 'Showing ' + shown + ' of ' + cards.length + ' vaults' : '';
       document.getElementById('vaultShowAllBtn').textContent = window.showAllVaults ? 'Hide all' : 'Show all 48';
@@ -1998,11 +2081,12 @@
         db.ref(path).limitToLast(1).on('child_added', snap => { if (ready) handler(snap.val() || {}); });
         db.ref(path).once('value', () => { ready = true; });
       };
-      hook('dues', d => { burstConfetti(); showToast((d.type === 'vault' ? '🔐 Vault contributions collected! ₱' : '💰 New store revenue' + (d.name ? ' (' + d.name + ')' : '') + '! ₱') + (parseFloat(d.amount) || 0).toFixed(2) + (d.by ? ' (by ' + d.by + ')' : '')); });
-      hook('expenses', e => showToast('🧾 Expense alert: ' + (e.title || 'something') + ' (₱' + (parseFloat(e.amount) || 0).toFixed(2) + ')' + (e.by ? ' — by ' + e.by : '')));
-      hook('fines', f => { showToast('🌼 New reminder for ' + (f.student || 'classmate') + ' 💛' + (f.by ? ' (by ' + f.by + ')' : '')); });
-      hook('suggestions', g => showToast('💬 New chika from ' + (g.author || 'someone') + '!'));
+      hook('dues', d => { burstConfetti(); showToast((d.type === 'vault' ? ' Vault contributions collected! ₱' : ' New store revenue' + (d.name ? ' (' + d.name + ')' : '') + '! ₱') + (parseFloat(d.amount) || 0).toFixed(2) + (d.by ? ' (by ' + d.by + ')' : '')); });
+      hook('expenses', e => showToast(' Expense alert: ' + (e.title || 'something') + ' (₱' + (parseFloat(e.amount) || 0).toFixed(2) + ')' + (e.by ? ' — by ' + e.by : '')));
+      hook('fines', f => { showToast(' New reminder for ' + (f.student || 'classmate') + ' ' + (f.by ? ' (by ' + f.by + ')' : '')); });
+      hook('suggestions', g => showToast(' New chika from ' + (g.author || 'someone') + '!'));
     })();
   </script>
+  <script>window.burstConfetti = function () {};</script>
 </body>
 </html>
