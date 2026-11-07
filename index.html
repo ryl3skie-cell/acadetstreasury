@@ -222,7 +222,7 @@
     <div id="gateCard" class="glass-card relative rounded-3xl p-7 max-w-sm w-full text-center">
       <div class="text-6xl mb-2 animate-bounce">🏦</div>
       <h2 class="text-2xl font-black text-white">Class Members Only! 🔒</h2>
-      <p class="text-xs text-slate-400 mt-1 mb-5">Enter the class password to get into the Central Bank of Acad H(ets). Forgot it? Ask your treasurer 💙</p>
+      <p class="text-xs text-slate-400 mt-1 mb-5">Enter the class password to get into the Central Bank of Acad H(ets). Forgot it? Ask your officers 💙</p>
       <input id="gateInput" type="password" placeholder="Class password..." autocomplete="off" class="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-4 py-3 text-sm text-slate-100 text-center focus:outline-none focus:border-cyan-500 mb-2">
       <p id="gateMsg" class="text-xs h-4 mb-2 text-rose-300"></p>
       <label class="flex items-center justify-center gap-2 text-[11px] text-slate-400 mb-4"><input id="gateRemember" type="checkbox" checked class="accent-cyan-500"> Remember me on this device</label>
@@ -273,7 +273,7 @@
 
       <div class="flex items-center gap-1.5 sm:gap-3">
         <button onclick="promptPasscodeAction('addDues')" class="bg-slate-800 hover:bg-slate-700 text-slate-100 text-[11px] sm:text-xs font-bold px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl border border-slate-700 transition shadow-md flex items-center gap-1.5 active:scale-95">
-          <i class="fa-solid fa-hand-holding-dollar text-emerald-400"></i> <span class="hidden sm:inline">Add Dues</span>
+          <i class="fa-solid fa-hand-holding-dollar text-emerald-400"></i> <span class="hidden sm:inline">Add Revenue</span>
         </button>
         <button onclick="promptPasscodeAction('addExpense')" class="bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-[11px] sm:text-xs font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition shadow-lg shadow-cyan-950/60 flex items-center gap-1.5 active:scale-95">
           <i class="fa-solid fa-receipt"></i> <span class="hidden sm:inline">Log Expense</span>
@@ -281,7 +281,7 @@
         <button onclick="openClassPwModal()" title="Class Password" class="p-2 sm:p-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-slate-400 hover:text-white transition active:scale-95">
           <i class="fa-solid fa-lock text-xs sm:text-sm"></i>
         </button>
-        <button onclick="openPasscodeSettings()" title="Treasurer Passcode" class="p-2 sm:p-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-slate-400 hover:text-white transition active:scale-95">
+        <button onclick="openPasscodeSettings()" title="Officers' Passcode" class="p-2 sm:p-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-slate-400 hover:text-white transition active:scale-95">
           <i class="fa-solid fa-sliders text-xs sm:text-sm"></i>
         </button>
       </div>
@@ -314,7 +314,7 @@
       <button onclick="switchTab('accounts')" id="tabBtn-accounts" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🔐</span><span class="tab-label">Vaults</span></button>
       <button onclick="switchTab('expenses')" id="tabBtn-expenses" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🧾</span><span class="tab-label">Expenses</span></button>
       <button onclick="switchTab('fines')" id="tabBtn-fines" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">🌼</span><span class="tab-label">Reminders</span></button>
-      <button onclick="switchTab('dues')" id="tabBtn-dues" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">💰</span><span class="tab-label">Dues</span></button>
+      <button onclick="switchTab('dues')" id="tabBtn-dues" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0"><span class="tab-emoji">💰</span><span class="tab-label">Revenue</span></button>
       <button onclick="switchTab('suggestions')" id="tabBtn-suggestions" class="px-3 sm:px-4 py-2 text-xs font-bold rounded-xl text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all flex items-center gap-1.5 flex-shrink-0 relative"><span class="tab-emoji">💬</span><span class="tab-label">Chika</span>
         <span id="suggestionBadge" class="bg-cyan-400 text-slate-950 font-black text-[9px] px-1.5 py-0.5 rounded-full hidden shadow-sm">0</span>
       </button>
@@ -384,7 +384,7 @@
           </div>
         </div>
         <div id="statCollected" class="text-xl sm:text-4xl font-black text-slate-100 tracking-tight">₱0.00</div>
-        <p class="text-[10px] sm:text-xs text-slate-400 mt-1 sm:mt-2 font-semibold">Dues + paid fines</p>
+        <p class="text-[10px] sm:text-xs text-slate-400 mt-1 sm:mt-2 font-semibold">Contributions + revenue + paid fines</p>
       </div>
 
       <div class="glass-card rounded-2xl p-4 sm:p-6 glow-blue card-hover relative overflow-hidden group">
@@ -422,6 +422,61 @@
 
     <!-- TAB 1: OVERVIEW DASHBOARD CONTENT -->
     <div id="tabContent-overview" class="space-y-6 sm:space-y-8">
+      <!-- COLLECTED CONTRIBUTIONS THIS WEEK -->
+      <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-emerald-500/40 glow-emerald">
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 text-emerald-400 font-black text-xs sm:text-sm uppercase tracking-wider">
+              <i class="fa-solid fa-calendar-week"></i> Collected Contributions This Week 🔐
+            </div>
+            <p id="weekRange" class="text-[11px] text-slate-400 mt-1 font-semibold">Mon – Sun</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <div id="weekCollected" class="text-3xl sm:text-4xl font-black text-emerald-400 tracking-tight">₱0.00</div>
+            <p id="weekCount" class="text-[10px] sm:text-xs text-slate-400 font-semibold"></p>
+          </div>
+        </div>
+        <p id="weekPaidLine" class="text-[11px] sm:text-xs text-emerald-300 font-bold mt-3"></p>
+        <p class="text-[10px] text-slate-500 mt-0.5">Money collected from the 48 student vaults (₱5 Fridays, advances, and paid-off unpaid dues).</p>
+        <div id="weekBreakdown" class="grid grid-cols-7 gap-1.5 mt-3"></div>
+        <div id="weekList" class="space-y-1.5 mt-3"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        <!-- TO BUY ANNOUNCEMENTS -->
+        <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-amber-500/40">
+          <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3">
+            <div class="flex items-center gap-2 text-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider">
+              <i class="fa-solid fa-cart-shopping"></i> 🛒 To Buy Announcements
+            </div>
+            <button onclick="promptPasscodeAction('addToBuy')" class="text-xs bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-3 py-1.5 rounded-xl transition font-bold flex items-center gap-1.5 active:scale-95">
+              <i class="fa-solid fa-plus text-[10px]"></i> Add
+            </button>
+          </div>
+          <div id="toBuyContainer" class="space-y-2.5">
+            <p class="text-slate-500 text-xs italic">Nothing to buy right now. 🎉</p>
+          </div>
+        </div>
+
+        <!-- NEXT PROJECT -->
+        <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-purple-500/40">
+          <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3 gap-2">
+            <div class="flex items-center gap-2 text-purple-400 font-black text-xs sm:text-sm uppercase tracking-wider">
+              <i class="fa-solid fa-bullseye"></i> 🎯 Next Project
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button onclick="promptPasscodeAction('editProject')" class="text-xs bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 px-3 py-1.5 rounded-xl transition font-bold active:scale-95">✏️ Set</button>
+              <button onclick="promptPasscodeAction('addProjectItem')" class="text-xs bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 px-3 py-1.5 rounded-xl transition font-bold flex items-center gap-1.5 active:scale-95">
+                <i class="fa-solid fa-plus text-[10px]"></i> Item
+              </button>
+            </div>
+          </div>
+          <div id="nextProjectContainer">
+            <p class="text-slate-500 text-xs italic">No project planned yet. The Officers can set one with ✏️ Set.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-xl border border-cyan-500/40">
         <div class="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-3">
           <div class="flex items-center gap-2 text-cyan-400 font-black text-xs sm:text-sm uppercase tracking-wider">
@@ -430,7 +485,7 @@
           <button onclick="switchTab('suggestions')" class="text-xs text-cyan-400 hover:underline font-bold">Go to Chika →</button>
         </div>
         <div id="homePinnedContainer" class="space-y-3">
-          <p class="text-slate-500 text-xs italic">No pinned announcements yet. Treasurers can pin threads from the Chika tab!</p>
+          <p class="text-slate-500 text-xs italic">No pinned announcements yet. The Officers can pin threads from the Chika tab!</p>
         </div>
       </div>
 
@@ -574,11 +629,12 @@
       <div class="glass-card rounded-3xl p-5 sm:p-8 shadow-xl border border-emerald-500/30">
         <div class="flex items-center justify-between mb-6">
           <div>
-            <h2 class="font-bold text-lg sm:text-xl text-white">Dues History 💰</h2>
-            <p class="text-xs text-slate-400">Every peso that came in, all listed!</p>
+            <h2 class="font-bold text-lg sm:text-xl text-white">Revenue History 💰</h2>
+            <p id="revenueTotal" class="text-xs font-bold text-emerald-400 mb-0.5"></p>
+            <p class="text-xs text-slate-400">Money our store made — name each sale so everyone knows where it came from!</p>
           </div>
           <button onclick="promptPasscodeAction('addDues')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-lg active:scale-95">
-            <i class="fa-solid fa-plus text-[10px]"></i> Record Dues
+            <i class="fa-solid fa-plus text-[10px]"></i> Record Revenue
           </button>
         </div>
         <div id="duesContainerFull" class="space-y-3"></div>
@@ -615,12 +671,12 @@
           <h3 class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
             <i class="fa-solid fa-thumbtack rotate-45"></i> Pinned Threads
           </h3>
-          <div id="pinnedSuggestionsContainer" class="space-y-3"></div>
+          <div id="pinnedSuggestionsContainer" class="space-y-1.5"></div>
         </div>
 
         <div class="space-y-3 pt-2">
-          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">All Recent Threads</h3>
-          <div id="suggestionsContainerFull" class="space-y-3"></div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">All Recent Threads <span id="chikaCount" class="normal-case text-slate-500 font-semibold"></span></h3>
+          <div id="suggestionsContainerFull" class="space-y-1.5"></div>
         </div>
       </div>
     </div>
@@ -639,8 +695,18 @@
       <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4 mx-auto">
         <i class="fa-solid fa-user-shield text-lg sm:text-xl"></i>
       </div>
-      <h3 class="text-lg sm:text-xl font-bold text-center text-white">Psst, Treasurer only! 🕵️</h3>
-      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Treasurer only! Enter the secret passcode 🤫</p>
+      <h3 class="text-lg sm:text-xl font-bold text-center text-white">Psst, Officers only! 🕵️</h3>
+      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Officers only! Pick your position and enter the secret passcode 🤫</p>
+      <label class="block text-xs font-semibold text-slate-400 mb-1">Your officer position</label>
+      <select id="officerSelect" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500 mb-3">
+        <option value="">Select position...</option>
+        <option value="President">President</option>
+        <option value="Vice President">Vice President</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Treasurer">Treasurer</option>
+        <option value="Auditor">Auditor</option>
+        <option value="Business Manager">Business Manager</option>
+      </select>
       <input type="password" id="passcodeInput" placeholder="Enter worded passcode..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500 mb-5">
       <div class="flex justify-end gap-2.5">
         <button onclick="closePasscodeModal()" class="w-1/2 py-2 text-xs font-semibold text-slate-400 hover:text-white bg-slate-800/50 rounded-xl border border-slate-700/50 transition">Cancel</button>
@@ -656,9 +722,19 @@
         <i class="fa-solid fa-key text-lg sm:text-xl"></i>
       </div>
       <h3 class="text-lg sm:text-xl font-bold text-center text-white">Change Passcode</h3>
-      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Change your treasurer passcode. (The class password has its own 🔒 menu.)</p>
+      <p class="text-xs text-center text-slate-400 mt-1 mb-5">Change the officers' passcode. (The class password has its own 🔒 menu.)</p>
       
       <label class="block text-xs font-semibold text-slate-400 mb-1">Current Passcode</label>
+      <label class="block text-xs font-semibold text-slate-400 mb-1">Your officer position</label>
+      <select id="officerSelectSt" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500 mb-3">
+        <option value="">Select position...</option>
+        <option value="President">President</option>
+        <option value="Vice President">Vice President</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Treasurer">Treasurer</option>
+        <option value="Auditor">Auditor</option>
+        <option value="Business Manager">Business Manager</option>
+      </select>
       <input type="password" id="oldPasscode" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-slate-100 mb-3 focus:outline-none focus:border-cyan-500">
       
       <label class="block text-xs font-semibold text-slate-400 mb-1">New Worded Passcode</label>
@@ -679,9 +755,19 @@
     <div class="glass-card rounded-3xl p-6 sm:p-7 max-w-sm w-full max-h-[92vh] overflow-y-auto shadow-2xl">
       <div class="text-4xl text-center mb-1">🔒</div>
       <h3 class="text-lg sm:text-xl font-bold text-center text-white">Class Password</h3>
-      <p class="text-xs text-center text-slate-400 mt-1 mb-4">Decide who gets into the site. Enter your treasurer passcode to make changes.</p>
+      <p class="text-xs text-center text-slate-400 mt-1 mb-4">Decide who gets into the site. Enter the officers' passcode (and pick your position) to make changes.</p>
 
-      <label class="block text-xs font-semibold text-slate-400 mb-1">Treasurer Passcode</label>
+      <label class="block text-xs font-semibold text-slate-400 mb-1">Officers' Passcode</label>
+      <label class="block text-xs font-semibold text-slate-400 mb-1">Your officer position</label>
+      <select id="officerSelectCp" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-cyan-500 mb-3">
+        <option value="">Select position...</option>
+        <option value="President">President</option>
+        <option value="Vice President">Vice President</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Treasurer">Treasurer</option>
+        <option value="Auditor">Auditor</option>
+        <option value="Business Manager">Business Manager</option>
+      </select>
       <input type="password" id="cpAuth" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-slate-100 mb-4 focus:outline-none focus:border-cyan-500">
 
       <div class="border-t border-slate-800 pt-3 mb-3">
@@ -811,12 +897,15 @@
 
     let masterPasscode = localStorage.getItem('treasurerPasscode') || 'treasurer123';
     let pendingAction = null;
+    let currentOfficer = '';
+    window.byField = () => currentOfficer ? { by: currentOfficer } : {};
+    window.readOfficer = (id) => { const el = document.getElementById(id); const v = el ? el.value : ''; if (!v) { alert('Please pick your officer position first 🙂'); return null; } return v; };
     // Editing stays unlocked for 5 minutes after a correct passcode (kept in memory only, so closing the tab re-locks it)
     const UNLOCK_MS = 5 * 60 * 1000;
     let unlockedUntil = 0;
     let relockTimer = null;
     // Big/bulk actions always ask for the passcode, even during the 5 minutes
-    const ALWAYS_ASK = ['clearData', 'resetAllAccounts', 'batchDeduct', 'batchAddAdvance', 'forceFridaySync', 'toggleFinePaid_' ];
+    const ALWAYS_ASK = ['clearData', 'resetAllAccounts', 'batchDeduct', 'batchAddAdvance', 'forceFridaySync'];
 
     // Make functions explicit and globally accessible
     window.switchTab = function(tabId) {
@@ -833,17 +922,15 @@
     };
 
     window.promptPasscodeAction = function(actionName) {
-     if (
-  Date.now() < unlockedUntil &&
-  !ALWAYS_ASK.includes(actionName) &&
-  !actionName.startsWith('toggleFinePaid_')
-) {
-  window.executeProtectedAction(actionName);
-  return;
-}
+      const mustAsk = ALWAYS_ASK.includes(actionName) || actionName.startsWith('toggleFinePaid_');
+      if (Date.now() < unlockedUntil && !mustAsk) {
+        window.executeProtectedAction(actionName);
+        return;
+      }
       pendingAction = actionName;
       const inputEl = document.getElementById('passcodeInput');
       if (inputEl) inputEl.value = '';
+      const offEl = document.getElementById('officerSelect'); if (offEl) offEl.value = '';
       const modalEl = document.getElementById('passcodeModal');
       if (modalEl) modalEl.classList.remove('hidden');
     };
@@ -857,12 +944,15 @@
     window.submitPasscodeVerification = function() {
       const inputEl = document.getElementById('passcodeInput');
       const entered = inputEl ? inputEl.value.trim() : '';
+      const officer = window.readOfficer('officerSelect');
+      if (!officer) return;
       if (entered.toLowerCase() === masterPasscode.toLowerCase()) {
+        currentOfficer = officer;
         const actionToRun = pendingAction;
         unlockedUntil = Date.now() + UNLOCK_MS;
         clearTimeout(relockTimer);
         relockTimer = setTimeout(() => { if (window.showToast) showToast('🔒 Editing is locked again. The passcode will be asked next time.'); }, UNLOCK_MS);
-        if (window.showToast) showToast('🔓 Editing unlocked for 5 minutes');
+        if (window.showToast) showToast('🔓 Unlocked for 5 minutes as ' + officer);
         window.closePasscodeModal();
         window.executeProtectedAction(actionToRun);
       } else {
@@ -882,7 +972,7 @@
     };
 
     window.openPasscodeSettings = function() {
-      document.getElementById('oldPasscode').value = '';
+      document.getElementById('oldPasscode').value = ''; document.getElementById('officerSelectSt').value = '';
       document.getElementById('newPasscode').value = '';
       document.getElementById('confirmPasscode').value = '';
       document.getElementById('settingsModal').classList.remove('hidden');
@@ -896,9 +986,11 @@
       const oldVal = document.getElementById('oldPasscode').value.trim();
       const newVal = document.getElementById('newPasscode').value.trim();
       const confirmVal = document.getElementById('confirmPasscode').value.trim();
+      const officerSt = window.readOfficer('officerSelectSt'); if (!officerSt) return;
       if (oldVal.toLowerCase() !== masterPasscode.toLowerCase()) { alert("Current passcode is incorrect!"); return; }
       if (!newVal) { alert("Please enter a valid new passcode."); return; }
       if (newVal !== confirmVal) { alert("New passcode and Confirm passcode do not match!"); return; }
+      currentOfficer = officerSt;
       masterPasscode = newVal;
       localStorage.setItem('treasurerPasscode', masterPasscode);
       if (db) db.ref('config/passcode').set(masterPasscode);
@@ -923,7 +1015,7 @@
       const paid = r2(r.contributed - (parseFloat(oldAcc && oldAcc.contributed) || 0));
       if (paid > 0 && db) {
         const nm = (oldAcc && oldAcc.name) || accKey.replace('acc_', 'Student ');
-        db.ref('dues').push({ amount: paid, date: `Paid unpaid dues: ${nm} (${window.localDateStr()})` });
+        db.ref('dues').push({ ts: Date.now(), type: 'vault', ...window.byField(), amount: paid, date: `Paid unpaid dues: ${nm} (${window.localDateStr()})` });
       }
     };
 
@@ -948,17 +1040,21 @@
         db.ref('accounts').once('value', accountsSnap => {
           const accounts = accountsSnap.val() || {};
           let updates = {};
-          let totalCollectedThisFriday = 0;
+          let totalCollectedThisFriday = 0, fullPaidCount = 0;
           for (let i = 1; i <= 48; i++) {
             const accKey = `acc_${i}`;
             const r = window.calcDeduct(accounts[accKey], 5);
             updates[`accounts/${accKey}/balance`] = r.balance;
             updates[`accounts/${accKey}/contributed`] = r.contributed;
-            totalCollectedThisFriday += Math.min(5, Math.max(parseFloat(accounts[accKey] && accounts[accKey].balance) || 0, 0));
+            { const got = Math.min(5, Math.max(parseFloat(accounts[accKey] && accounts[accKey].balance) || 0, 0)); totalCollectedThisFriday += got; if (got >= 5) fullPaidCount++; }
           }
           db.ref().update(updates, (err) => {
             if (!err) {
               if (totalCollectedThisFriday > 0) db.ref('dues').push({
+                ts: Date.now(),
+                type: 'vault',
+                paidCount: fullPaidCount,
+                ...(manualTrigger ? window.byField() : { by: 'Auto' }),
                 amount: totalCollectedThisFriday,
                 date: `Friday Auto-Deduct (${todayDateStr})`
               });
@@ -991,19 +1087,60 @@
         const title = prompt("Expense Description (e.g., Medical Kits, Lab Supplies):");
         const amount = parseFloat(prompt("Amount in ₱:"));
         if (title && !isNaN(amount)) {
-          db.ref('expenses').push({ title, amount, date: new Date().toLocaleDateString() });
+          db.ref('expenses').push({ title, amount, date: new Date().toLocaleDateString(), ...window.byField() });
         }
       } else if (action === 'addDues') {
-        const amount = parseFloat(prompt("Total Dues Collected (₱):"));
+        const name = (prompt("Revenue name (e.g., Milk tea sale, Cookie booth):") || '').trim();
+        if (!name) return;
+        const amount = parseFloat(prompt("Amount made from the store (₱):"));
         if (!isNaN(amount)) {
-          db.ref('dues').push({ amount, date: new Date().toLocaleDateString() });
+          db.ref('dues').push({ ts: Date.now(), type: 'revenue', name, ...window.byField(), amount, date: new Date().toLocaleDateString() });
         }
+      } else if (action === 'addToBuy') {
+        const text = (prompt("What needs to be bought? (e.g., Alcohol & tissue for the lab)") || '').trim();
+        if (!text) return;
+        const amtStr = prompt("Estimated cost in ₱ (leave blank if none):", "");
+        const amount = parseFloat(amtStr);
+        const entry = { text, date: new Date().toLocaleDateString(), ts: Date.now(), ...window.byField() };
+        if (!isNaN(amount) && amount >= 0) entry.amount = amount;
+        db.ref('toBuy').push(entry);
+      } else if (action.startsWith('deleteToBuy_')) {
+        if (confirm("Remove this To Buy announcement?")) db.ref(`toBuy/${action.replace('deleteToBuy_', '')}`).remove();
+      } else if (action === 'editProject') {
+        db.ref('nextProject').once('value', snap => {
+          const cur = snap.val() || {};
+          const name = (prompt("Next Project name:", cur.name || '') || '').trim();
+          if (!name) return;
+          const target = prompt("Target date / note (optional, e.g., Nov 28):", cur.target || '');
+          db.ref('nextProject').update({ name, target: (target || '').trim(), ...window.byField() });
+        });
+      } else if (action === 'addProjectItem') {
+        const name = (prompt("Item to buy (e.g., Bond paper):") || '').trim();
+        const qty = parseInt(prompt("Quantity:", "1"), 10);
+        const price = parseFloat(prompt("Price per piece in ₱:"));
+        if (name && qty > 0 && !isNaN(price) && price >= 0) {
+          db.ref('nextProjectItems').push({ name, qty, price, ...window.byField() });
+        }
+      } else if (action.startsWith('editProjectItem_')) {
+        const id = action.replace('editProjectItem_', '');
+        db.ref(`nextProjectItems/${id}`).once('value', snap => {
+          const it = snap.val();
+          if (!it) return;
+          const name = (prompt("Item name:", it.name) || '').trim();
+          const qty = parseInt(prompt("Quantity:", it.qty), 10);
+          const price = parseFloat(prompt("Price per piece in ₱:", it.price));
+          if (name && qty > 0 && !isNaN(price) && price >= 0) db.ref(`nextProjectItems/${id}`).update({ name, qty, price, ...window.byField() });
+        });
+      } else if (action.startsWith('deleteProjectItem_')) {
+        db.ref(`nextProjectItems/${action.replace('deleteProjectItem_', '')}`).remove();
+      } else if (action === 'clearProject') {
+        if (confirm("Clear the Next Project and all its items?")) db.ref().update({ nextProject: null, nextProjectItems: null });
       } else if (action === 'addFine') {
         const student = prompt("Student Name:");
         const reason = prompt("Reason (what is the fine for?):");
         const amount = parseFloat(prompt("Amount in ₱:"));
         if (student && reason && !isNaN(amount)) {
-          db.ref('fines').push({ student, reason, amount, paid: false });
+          db.ref('fines').push({ student, reason, amount, paid: false, ...window.byField() });
         }
       } else if (action === 'clearData') {
         if (confirm("Are you sure you want to reset all class database ledger data?")) {
@@ -1026,7 +1163,7 @@
             }
             db.ref('lastVaultState').set(accounts);
             db.ref().update(updates);
-            if (batchPaid > 0) db.ref('dues').push({ amount: r2(batchPaid), date: `Paid unpaid dues: everyone (${window.localDateStr()})` });
+            if (batchPaid > 0) db.ref('dues').push({ ts: Date.now(), type: 'vault', ...window.byField(), amount: r2(batchPaid), date: `Paid unpaid dues: everyone (${window.localDateStr()})` });
           });
         }
       } else if (action === 'undoVaultAction') {
@@ -1112,8 +1249,8 @@
             let msg = `Deducted ₱${amt.toFixed(2)} from ${nm}.`;
             if (unpaid > 0) msg += `\n₱${unpaid.toFixed(2)} of it is now unpaid dues.`;
             if (covered > 0) {
-              if (confirm(msg + `\n\nAlso record ₱${covered.toFixed(2)} in the Dues Log as collected money?`)) {
-                db.ref('dues').push({ amount: covered, date: `Vault deduction: ${nm} (${window.localDateStr()})` });
+              if (confirm(msg + `\n\nAlso record ₱${covered.toFixed(2)} in Collected Contributions as vault payments?`)) {
+                db.ref('dues').push({ ts: Date.now(), type: 'vault', ...window.byField(), amount: covered, date: `Vault deduction: ${nm} (${window.localDateStr()})` });
               }
             } else { alert(msg); }
           });
@@ -1139,8 +1276,8 @@
             let msg = `Deducted ₱${amt.toFixed(2)} from every vault.`;
             if (unpaid > 0) msg += `\n₱${unpaid.toFixed(2)} in total is now unpaid dues.`;
             if (covered > 0) {
-              if (confirm(msg + `\n\nAlso record ₱${covered.toFixed(2)} in the Dues Log as collected money?`)) {
-                db.ref('dues').push({ amount: covered, date: `Vault deduction: everyone (${window.localDateStr()})` });
+              if (confirm(msg + `\n\nAlso record ₱${covered.toFixed(2)} in Collected Contributions as vault payments?`)) {
+                db.ref('dues').push({ ts: Date.now(), type: 'vault', ...window.byField(), amount: covered, date: `Vault deduction: everyone (${window.localDateStr()})` });
               }
             } else { alert(msg); }
             if (window.showToast) showToast('➖ Deducted ₱' + amt.toFixed(2) + ' from every vault');
@@ -1151,7 +1288,7 @@
       } else if (action.startsWith('toggleFinePaid_')) {
         const id = action.replace('toggleFinePaid_', '');
         db.ref(`fines/${id}/paid`).once('value', snapshot => {
-          db.ref(`fines/${id}/paid`).set(!snapshot.val());
+          db.ref(`fines/${id}`).update({ paid: !snapshot.val(), paidBy: !snapshot.val() ? (currentOfficer || null) : null });
         });
       } else if (action.startsWith('editAccountName_')) {
         const accKey = action.replace('editAccountName_', '');
@@ -1199,7 +1336,7 @@
             const newTitle = prompt("Edit Expense Description:", item.title);
             const newAmount = parseFloat(prompt("Edit Amount in ₱:", item.amount));
             if (newTitle && !isNaN(newAmount)) {
-              db.ref(`expenses/${id}`).update({ title: newTitle, amount: newAmount });
+              db.ref(`expenses/${id}`).update({ title: newTitle, amount: newAmount, editedBy: currentOfficer || null });
             }
           }
         });
@@ -1215,7 +1352,7 @@
             const newReason = prompt("Edit Reason (what is the fine for?):", item.reason);
             const newAmount = parseFloat(prompt("Edit Amount in ₱:", item.amount));
             if (newStudent && newReason && !isNaN(newAmount)) {
-              db.ref(`fines/${id}`).update({ student: newStudent, reason: newReason, amount: newAmount });
+              db.ref(`fines/${id}`).update({ student: newStudent, reason: newReason, amount: newAmount, editedBy: currentOfficer || null });
             }
           }
         });
@@ -1227,9 +1364,11 @@
         db.ref(`dues/${id}`).once('value', snapshot => {
           const item = snapshot.val();
           if (item) {
-            const newAmount = parseFloat(prompt("Edit Dues Amount in ₱:", item.amount));
+            const newName = (prompt("Edit Revenue Name:", item.name || 'Store Revenue') || '').trim();
+            if (!newName) return;
+            const newAmount = parseFloat(prompt("Edit Revenue Amount in ₱:", item.amount));
             if (!isNaN(newAmount)) {
-              db.ref(`dues/${id}`).update({ amount: newAmount });
+              db.ref(`dues/${id}`).update({ name: newName, amount: newAmount, editedBy: currentOfficer || null });
             }
           }
         });
@@ -1240,7 +1379,7 @@
         const id = action.replace('togglePinSuggestion_', '');
         db.ref(`suggestions/${id}/pinned`).once('value', snapshot => {
           const currentPinned = snapshot.val() || false;
-          db.ref(`suggestions/${id}/pinned`).set(!currentPinned);
+          db.ref(`suggestions/${id}`).update({ pinned: !currentPinned, pinnedBy: !currentPinned ? (currentOfficer || null) : null });
         });
       } else if (action.startsWith('editSuggestion_')) {
         const id = action.replace('editSuggestion_', '');
@@ -1287,7 +1426,7 @@
     window.getAvatarColor = function(name) {
       const colors = ['bg-cyan-500', 'bg-blue-600', 'bg-indigo-600', 'bg-sky-500', 'bg-teal-500'];
       let hash = 0;
-      for (let i = 0; i < name.length; i++) hash += name.charCodeAt(i);
+      name = String(name || ''); for (let i = 0; i < name.length; i++) hash += name.charCodeAt(i);
       return colors[Math.abs(hash) % colors.length];
     };
 
@@ -1303,6 +1442,33 @@
         downloadAnchor.click();
         downloadAnchor.remove();
       });
+    };
+
+    // Compact Chika card (shared by pinned + regular lists)
+    window.chikaCard = function(s, pinned) {
+      const pinTitle = pinned ? 'Unpin thread' : 'Pin thread';
+      const pinCls = pinned ? 'text-cyan-400 hover:text-cyan-300' : 'text-slate-500 hover:text-cyan-400';
+      const pinIcon = pinned ? 'fa-thumbtack rotate-45' : 'fa-thumbtack';
+      return `
+          <div class="px-2.5 py-1.5 ${pinned ? 'bg-slate-950/90 border-cyan-500/40' : 'bg-slate-950/70 border-slate-800/80 hover:border-cyan-500/30'} rounded-xl border transition">
+            <div class="flex items-center gap-1.5">
+              <div class="w-5 h-5 rounded-full ${window.getAvatarColor(s.author)} flex items-center justify-center text-white font-bold text-[8px] uppercase flex-shrink-0">${escapeHtml(String(s.author).substring(1, 3))}</div>
+              <span class="text-[11px] font-bold ${pinned ? 'text-cyan-300' : 'text-white'} truncate">${escapeHtml(s.author)}</span>
+              <span class="bg-cyan-500/10 text-cyan-400 text-[8px] font-bold px-1.5 rounded-full border border-cyan-500/20 flex-shrink-0">${escapeHtml(s.category || 'Idea')}</span>
+              <span class="text-[9px] text-slate-500 truncate min-w-0">${s.date}${pinned && s.pinnedBy ? ' · pinned by ' + escapeHtml(s.pinnedBy) : ''}</span>
+              <div class="flex items-center gap-0.5 ml-auto flex-shrink-0">
+                <button onclick="promptPasscodeAction('togglePinSuggestion_${s.id}')" class="${pinCls} text-[10px] p-0.5" title="${pinTitle}"><i class="fa-solid ${pinIcon}"></i></button>
+                <button onclick="promptPasscodeAction('editSuggestion_${s.id}')" class="text-slate-500 hover:text-cyan-400 text-[10px] p-0.5" title="Edit thread"><i class="fa-solid fa-pen"></i></button>
+                <button onclick="promptPasscodeAction('deleteSuggestion_${s.id}')" class="text-slate-500 hover:text-rose-400 text-[10px] p-0.5" title="Delete thread"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-2 pl-6.5" style="padding-left:26px">
+              <p class="text-xs ${pinned ? 'text-slate-200' : 'text-slate-300'} leading-snug">${escapeHtml(s.text)}</p>
+              <button onclick="upvoteSuggestion('${s.id}', ${s.upvotes || 0})" class="hover:text-cyan-400 flex items-center gap-1 text-[10px] text-slate-400 transition flex-shrink-0 pt-0.5">
+                <i class="fa-regular fa-heart"></i> ${s.upvotes || 0}
+              </button>
+            </div>
+          </div>`;
     };
 
     // LIVE DATABASE SNAPSHOT LISTENER
@@ -1323,7 +1489,10 @@
         const expenses = Object.entries(expensesObj).map(([id, val]) => ({ id, ...val })).reverse();
         const dues = Object.entries(duesObj).map(([id, val]) => ({ id, ...val })).reverse();
         const fines = Object.entries(finesObj).map(([id, val]) => ({ id, ...val })).reverse();
-        const suggestions = Object.entries(suggestionsObj).map(([id, val]) => ({ id, ...val })).reverse();
+        const suggestions = Object.entries(suggestionsObj)
+          .filter(([id, val]) => val && typeof val === 'object')
+          .map(([id, val]) => ({ id, ...val, author: String(val.author || '@anonymous'), text: String(val.text || ''), date: val.date || '' }))
+          .reverse();
 
         // Calculate Totals
         const totalSpent = expenses.reduce((sum, e) => sum + (parseFloat(e.amount) || 0), 0);
@@ -1408,7 +1577,8 @@
         if (window.applyVaultFilter) window.applyVaultFilter();
 
         // Render Home Pinned Messages
-        const pinnedList = suggestions.filter(s => s.pinned);
+        const isPinnedThread = s => s.pinned === true || s.pinned === 'true';
+        const pinnedList = suggestions.filter(isPinnedThread);
         const homePinnedHtml = pinnedList.length ? pinnedList.map(s => `
           <div class="p-3.5 bg-slate-950/90 rounded-2xl border border-cyan-500/40 space-y-1.5">
             <div class="flex items-center justify-between">
@@ -1416,12 +1586,119 @@
                 <span class="text-xs font-bold text-cyan-300">${escapeHtml(s.author)}</span>
                 <span class="bg-cyan-500/10 text-cyan-400 text-[9px] font-bold px-2 py-0.2 rounded-full border border-cyan-500/20">${escapeHtml(s.category || 'Idea')}</span>
               </div>
-              <span class="text-[10px] text-slate-500">${s.date}</span>
+              <span class="text-[10px] text-slate-500">${s.date}${s.pinnedBy ? ' · pinned by ' + escapeHtml(s.pinnedBy) : ''}</span>
             </div>
             <p class="text-xs text-slate-200 leading-relaxed">${escapeHtml(s.text)}</p>
           </div>
-        `).join('') : '<p class="text-slate-500 text-xs italic">No pinned announcements yet. Treasurers can pin threads from the Chika tab!</p>';
+        `).join('') : '<p class="text-slate-500 text-xs italic">No pinned announcements yet. The Officers can pin threads from the Chika tab!</p>';
         document.getElementById('homePinnedContainer').innerHTML = homePinnedHtml;
+
+        // Vault-collected money vs store revenue (old entries are sorted by their label)
+        const isVault = d => d.type ? d.type === 'vault' : /^(Friday Auto-Deduct|Paid unpaid dues|Vault deduction)/.test(String(d.date || ''));
+        const vaultEntries = dues.filter(isVault);
+        const revenueEntries = dues.filter(d => !isVault(d));
+        try {
+        // ---- Collected Contributions This Week (Mon-Sun) from the 48 vaults ----
+        const entryTime = d => {
+          if (d.ts) return d.ts;
+          const m = String(d.date || '').match(/(\d{4})-(\d{2})-(\d{2})/);
+          if (m) return new Date(+m[1], +m[2] - 1, +m[3], 12).getTime();
+          const t = Date.parse(d.date || '');
+          return isNaN(t) ? null : t;
+        };
+        const nowD = new Date();
+        const weekStart = new Date(nowD.getFullYear(), nowD.getMonth(), nowD.getDate() - ((nowD.getDay() + 6) % 7));
+        const weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7);
+        const dayTotals = [0,0,0,0,0,0,0]; let weekSum = 0, weekN = 0;
+        const weekEntries = []; let fridayPaid = null;
+        vaultEntries.forEach(d => {
+          const t = entryTime(d);
+          if (t === null || t < weekStart.getTime() || t >= weekEnd.getTime()) return;
+          const amt = parseFloat(d.amount) || 0;
+          const idx = (new Date(t).getDay() + 6) % 7;
+          dayTotals[idx] += amt; weekSum += amt; weekN++; weekEntries.push(d);
+          if (/^Friday Auto-Deduct/.test(String(d.date || ''))) fridayPaid = (fridayPaid || 0) + (d.paidCount !== undefined ? d.paidCount : Math.round(amt / 5));
+        });
+        const fmtD = x => x.toLocaleDateString('en-PH', { month: 'short', day: 'numeric' });
+        const lastDay = new Date(weekEnd.getTime() - 86400000);
+        const wr = document.getElementById('weekRange'); if (wr) wr.textContent = `${fmtD(weekStart)} – ${fmtD(lastDay)}, ${lastDay.getFullYear()}`;
+        const wc = document.getElementById('weekCollected'); if (wc) wc.textContent = `₱${weekSum.toFixed(2)}`;
+        const wn = document.getElementById('weekCount'); if (wn) wn.textContent = weekN ? `${weekN} vault collection${weekN > 1 ? 's' : ''}` : 'Nothing collected yet';
+        const wp = document.getElementById('weekPaidLine');
+        if (wp) wp.textContent = fridayPaid !== null ? `Friday ₱5 round: ${Math.min(fridayPaid, 48)} of 48 vaults paid · ${Math.max(48 - fridayPaid, 0)} still unpaid` : 'No Friday ₱5 round yet this week';
+        const wl = document.getElementById('weekList');
+        if (wl) wl.innerHTML = weekEntries.length ? weekEntries.map(d => `
+          <div class="flex items-center justify-between gap-2 text-[11px] sm:text-xs px-3 py-2 bg-slate-950/70 rounded-xl border border-slate-800/80">
+            <span class="text-slate-300 truncate">${escapeHtml(d.date || '')}${d.by ? ' · by ' + escapeHtml(d.by) : ''}</span>
+            <span class="font-bold text-emerald-300 flex-shrink-0">+₱${(parseFloat(d.amount) || 0).toFixed(2)}</span>
+          </div>`).join('') : '';
+        const wb = document.getElementById('weekBreakdown');
+        if (wb) wb.innerHTML = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map((n, i) => `
+          <div class="text-center p-1.5 sm:p-2 rounded-xl border ${dayTotals[i] > 0 ? 'bg-emerald-500/10 border-emerald-500/40' : 'bg-slate-950/70 border-slate-800/80'}">
+            <p class="text-[9px] sm:text-[10px] font-black uppercase text-slate-400">${n}</p>
+            <p class="text-[10px] sm:text-xs font-bold ${dayTotals[i] > 0 ? 'text-emerald-300' : 'text-slate-600'}">${dayTotals[i] > 0 ? '₱' + (Math.round(dayTotals[i] * 100) / 100) : '–'}</p>
+          </div>`).join('');
+
+        // ---- To Buy announcements ----
+        const toBuy = Object.entries(data.toBuy || {}).map(([id, v]) => ({ id, ...v })).reverse();
+        const tb = document.getElementById('toBuyContainer');
+        if (tb) tb.innerHTML = toBuy.length ? toBuy.map(t => `
+          <div class="flex items-start justify-between gap-2 p-3 bg-slate-950/90 rounded-2xl border border-amber-500/30">
+            <div class="min-w-0">
+              <p class="text-xs sm:text-sm font-semibold text-slate-100 leading-snug">🛒 ${escapeHtml(t.text)}</p>
+              <p class="text-[10px] text-slate-500 mt-0.5">${escapeHtml(t.date || '')}${t.by ? ' · by ' + escapeHtml(t.by) : ''}</p>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              ${t.amount !== undefined ? `<span class="text-xs sm:text-sm font-bold text-amber-400">₱${(parseFloat(t.amount) || 0).toFixed(2)}</span>` : ''}
+              <button onclick="promptPasscodeAction('deleteToBuy_${t.id}')" class="p-1 text-xs text-slate-400 hover:text-rose-400 transition"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>`).join('') : '<p class="text-slate-500 text-xs italic">Nothing to buy right now. 🎉</p>';
+
+        // ---- Next Project ----
+        const proj = data.nextProject || null;
+        const projItems = Object.entries(data.nextProjectItems || {}).map(([id, v]) => ({ id, ...v }));
+        const projTotal = projItems.reduce((sum, it) => sum + (parseFloat(it.price) || 0) * (parseInt(it.qty, 10) || 1), 0);
+        const cashNow = currentBalance + cashAdj;
+        const np = document.getElementById('nextProjectContainer');
+        if (np) {
+          if (!proj && !projItems.length) {
+            np.innerHTML = '<p class="text-slate-500 text-xs italic">No project planned yet. The Officers can set one with ✏️ Set.</p>';
+          } else {
+            const gap = projTotal - cashNow;
+            np.innerHTML = `
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <div class="min-w-0">
+                  <p class="text-sm sm:text-base font-bold text-white">${escapeHtml((proj && proj.name) || 'Untitled project')}</p>
+                  ${proj && proj.target ? `<p class="text-[11px] text-purple-300 font-semibold">📅 ${escapeHtml(proj.target)}</p>` : ''}
+                  ${proj && proj.by ? `<p class="text-[10px] text-slate-500">Set by ${escapeHtml(proj.by)}</p>` : ''}
+                </div>
+                <button onclick="promptPasscodeAction('clearProject')" title="Clear project" class="p-1 text-xs text-slate-500 hover:text-rose-400 transition"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+              <div class="space-y-2">
+                ${projItems.length ? projItems.map(it => {
+                  const q = parseInt(it.qty, 10) || 1, pr = parseFloat(it.price) || 0;
+                  return `<div class="flex items-center justify-between gap-2 p-2.5 bg-slate-950/90 rounded-xl border border-slate-800/80">
+                    <div class="min-w-0">
+                      <p class="text-xs font-semibold text-slate-100 truncate">${escapeHtml(it.name)}</p>
+                      <p class="text-[10px] text-slate-400">${q} × ₱${pr.toFixed(2)}${it.by ? ' · by ' + escapeHtml(it.by) : ''}</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 flex-shrink-0">
+                      <span class="text-xs font-bold text-purple-300">₱${(q * pr).toFixed(2)}</span>
+                      <button onclick="promptPasscodeAction('editProjectItem_${it.id}')" class="p-1 text-xs text-slate-400 hover:text-cyan-400 transition"><i class="fa-solid fa-pen"></i></button>
+                      <button onclick="promptPasscodeAction('deleteProjectItem_${it.id}')" class="p-1 text-xs text-slate-400 hover:text-rose-400 transition"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                  </div>`;
+                }).join('') : '<p class="text-slate-500 text-xs italic">No items yet. Tap + Item to add what needs buying.</p>'}
+              </div>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-[11px] font-black uppercase tracking-wider text-slate-400">Total needed</span>
+                <span class="text-lg sm:text-xl font-black text-purple-300">₱${projTotal.toFixed(2)}</span>
+              </div>
+              ${projItems.length ? `<p class="text-[11px] mt-1 font-semibold ${gap > 0 ? 'text-amber-400' : 'text-emerald-400'}">${gap > 0 ? `Short by ₱${gap.toFixed(2)} vs. cash on hand` : 'Cash on hand already covers this ✅'}</p>` : ''}`;
+          }
+        }
+
+        } catch (homeErr) { console.error('Home sections error:', homeErr); }
 
         // Render Expenses
         const expHtml = expenses.length ? expenses.map(e => `
@@ -1432,7 +1709,7 @@
               </div>
               <div class="min-w-0">
                 <p class="text-xs sm:text-sm font-semibold text-slate-100 truncate">${escapeHtml(e.title)}</p>
-                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium">${e.date}</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium">${e.date}${e.by ? ' · by ' + escapeHtml(e.by) : ''}${e.editedBy ? ' · edited by ' + escapeHtml(e.editedBy) : ''}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
@@ -1456,7 +1733,7 @@
               </div>
               <div class="min-w-0">
                 <p class="text-xs sm:text-sm font-semibold text-slate-100 truncate">${escapeHtml(f.student)} ${f.paid ? '<span class="text-[9px] bg-cyan-500/10 text-cyan-400 px-1.5 py-0.2 rounded-full ml-1">Paid 🎉</span>' : ''}</p>
-                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium truncate">${escapeHtml(f.reason)}</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium truncate">${escapeHtml(f.reason)}${f.by ? ' · added by ' + escapeHtml(f.by) : ''}${f.paid && f.paidBy ? ' · marked paid by ' + escapeHtml(f.paidBy) : ''}${f.editedBy ? ' · edited by ' + escapeHtml(f.editedBy) : ''}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
@@ -1475,15 +1752,15 @@
         document.getElementById('finesContainerFull').innerHTML = finesHtml;
 
         // Render Dues
-        const duesHtml = dues.length ? dues.map(d => `
+        const duesHtml = revenueEntries.length ? revenueEntries.map(d => `
           <div class="flex justify-between items-center p-3 sm:p-3.5 bg-slate-950/70 rounded-2xl border border-slate-800/80 transition">
             <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-2">
               <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xs flex-shrink-0">
                 <i class="fa-solid fa-coins"></i>
               </div>
               <div class="min-w-0">
-                <p class="text-xs sm:text-sm font-semibold text-slate-100 truncate">Class Contribution</p>
-                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium">${d.date}</p>
+                <p class="text-xs sm:text-sm font-semibold text-slate-100 truncate">${escapeHtml(d.name || 'Store Revenue')}</p>
+                <p class="text-[10px] sm:text-[11px] text-slate-400 font-medium">${d.date}${d.by ? ' · by ' + escapeHtml(d.by) : ''}${d.editedBy ? ' · edited by ' + escapeHtml(d.editedBy) : ''}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
@@ -1494,8 +1771,10 @@
               </div>
             </div>
           </div>
-        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No dues yet... who will go first? 👀</p>';
+        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">No revenue yet... who will go first? 👀</p>';
         document.getElementById('duesContainerFull').innerHTML = duesHtml;
+        const rt = document.getElementById('revenueTotal');
+        if (rt) rt.textContent = `Total store revenue: ₱${revenueEntries.reduce((a, d) => a + (parseFloat(d.amount) || 0), 0).toFixed(2)}`;
 
         // Render Threads / Suggestions
         const suggBadge = document.getElementById('suggestionBadge');
@@ -1506,70 +1785,13 @@
           suggBadge.classList.add('hidden');
         }
 
-        const pinnedHtml = pinnedList.length ? pinnedList.map(s => `
-          <div class="p-3.5 sm:p-4 bg-slate-950/90 rounded-2xl border border-cyan-500/40 space-y-2">
-            <div class="flex items-start justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-full ${window.getAvatarColor(s.author)} flex items-center justify-center text-white font-bold text-[11px] uppercase shadow-sm flex-shrink-0">
-                  ${escapeHtml(s.author.substring(1, 3))}
-                </div>
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-xs font-bold text-white">${escapeHtml(s.author)}</span>
-                    <span class="bg-cyan-500/10 text-cyan-400 text-[9px] font-bold px-2 py-0.2 rounded-full border border-cyan-500/20">${escapeHtml(s.category || 'Idea')}</span>
-                  </div>
-                  <p class="text-[10px] text-slate-400">${s.date}</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-1">
-                <button onclick="promptPasscodeAction('togglePinSuggestion_${s.id}')" class="text-cyan-400 hover:text-cyan-300 text-xs p-1" title="Unpin thread"><i class="fa-solid fa-thumbtack rotate-45"></i></button>
-                <button onclick="promptPasscodeAction('editSuggestion_${s.id}')" class="text-slate-400 hover:text-cyan-400 text-xs p-1" title="Edit thread"><i class="fa-solid fa-pen"></i></button>
-                <button onclick="promptPasscodeAction('deleteSuggestion_${s.id}')" class="text-slate-400 hover:text-rose-400 text-xs p-1" title="Delete thread"><i class="fa-solid fa-trash-can"></i></button>
-              </div>
-            </div>
-            <p class="text-xs text-slate-200 pl-10 sm:pl-11 leading-relaxed">${escapeHtml(s.text)}</p>
-            <div class="flex items-center gap-5 pl-10 sm:pl-11 pt-1 text-[11px] text-slate-400">
-              <button onclick="upvoteSuggestion('${s.id}', ${s.upvotes || 0})" class="hover:text-cyan-400 flex items-center gap-1 transition">
-                <i class="fa-regular fa-heart"></i> ${s.upvotes || 0}
-              </button>
-              <span class="flex items-center gap-1"><i class="fa-regular fa-comment"></i> Thread</span>
-            </div>
-          </div>
-        `).join('') : '<p class="text-slate-500 text-xs italic">Nothing pinned yet. Go pin something! 📌</p>';
+        const pinnedHtml = pinnedList.length ? pinnedList.map(s => window.chikaCard(s, true)).join('') : '<p class="text-slate-500 text-xs italic">Nothing pinned yet. Go pin something! 📌</p>';
         document.getElementById('pinnedSuggestionsContainer').innerHTML = pinnedHtml;
 
-        const regularList = suggestions.filter(s => !s.pinned);
-        const suggHtmlFull = regularList.length ? regularList.map(s => `
-          <div class="p-3.5 sm:p-4 bg-slate-950/70 rounded-2xl border border-slate-800/80 hover:border-cyan-500/30 transition space-y-2">
-            <div class="flex items-start justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-full ${window.getAvatarColor(s.author)} flex items-center justify-center text-white font-bold text-[11px] uppercase shadow-sm flex-shrink-0">
-                  ${escapeHtml(s.author.substring(1, 3))}
-                </div>
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-xs font-bold text-white">${escapeHtml(s.author)}</span>
-                    <span class="bg-cyan-500/10 text-cyan-400 text-[9px] font-bold px-2 py-0.2 rounded-full border border-cyan-500/20">${escapeHtml(s.category || 'Idea')}</span>
-                  </div>
-                  <p class="text-[10px] text-slate-500">${s.date}</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-1">
-                <button onclick="promptPasscodeAction('togglePinSuggestion_${s.id}')" class="text-slate-500 hover:text-cyan-400 text-xs p-1" title="Pin thread"><i class="fa-solid fa-thumbtack"></i></button>
-                <button onclick="promptPasscodeAction('editSuggestion_${s.id}')" class="text-slate-500 hover:text-cyan-400 text-xs p-1" title="Edit thread"><i class="fa-solid fa-pen"></i></button>
-                <button onclick="promptPasscodeAction('deleteSuggestion_${s.id}')" class="text-slate-500 hover:text-rose-400 text-xs p-1" title="Delete thread"><i class="fa-solid fa-trash-can"></i></button>
-              </div>
-            </div>
-            <p class="text-xs text-slate-300 pl-10 sm:pl-11 leading-relaxed">${escapeHtml(s.text)}</p>
-            <div class="flex items-center gap-5 pl-10 sm:pl-11 pt-1 text-[11px] text-slate-400">
-              <button onclick="upvoteSuggestion('${s.id}', ${s.upvotes || 0})" class="hover:text-cyan-400 flex items-center gap-1 transition">
-                <i class="fa-regular fa-heart"></i> ${s.upvotes || 0}
-              </button>
-              <span class="flex items-center gap-1"><i class="fa-regular fa-comment"></i> Thread</span>
-            </div>
-          </div>
-        `).join('') : '<p class="text-slate-500 text-xs sm:text-sm">So quiet... start a chika! 🦗</p>';
+        const regularList = suggestions.filter(s => !isPinnedThread(s));
+        const suggHtmlFull = regularList.length ? regularList.map(s => window.chikaCard(s, false)).join('') : '<p class="text-slate-500 text-xs sm:text-sm">So quiet... start a chika! 🦗</p>';
         document.getElementById('suggestionsContainerFull').innerHTML = suggHtmlFull;
+        const cc = document.getElementById('chikaCount'); if (cc) cc.textContent = `(${regularList.length} message${regularList.length === 1 ? '' : 's'}, pinned ones are listed above)`;
 
         window.checkFridayDeduction(false);
       });
@@ -1697,7 +1919,7 @@
     window.openClassPwModal = function() {
       ['cpAuth','cpNew','cpConfirm'].forEach(id => { cpEl(id).value = ''; });
       cpEl('cpShow').checked = false; window.toggleClassPwVisibility();
-      cpEl('classPwModal').classList.remove('hidden');
+      cpEl('officerSelectCp').value = ''; cpEl('classPwModal').classList.remove('hidden');
     };
     window.closeClassPwModal = function() { cpEl('classPwModal').classList.add('hidden'); };
     window.toggleClassPwVisibility = function() {
@@ -1705,7 +1927,9 @@
       cpEl('cpNew').type = t; cpEl('cpConfirm').type = t;
     };
     function cpAuthOk() {
-      if (cpEl('cpAuth').value.trim().toLowerCase() !== masterPasscode.toLowerCase()) { alert("Treasurer passcode is incorrect!"); return false; }
+      const offCp = window.readOfficer('officerSelectCp'); if (!offCp) return false;
+      if (cpEl('cpAuth').value.trim().toLowerCase() !== masterPasscode.toLowerCase()) { alert("Officers' passcode is incorrect!"); return false; }
+      currentOfficer = offCp;
       return true;
     }
     window.saveClassPassword = async function() {
@@ -1765,7 +1989,7 @@
     window.toggleShowAllVaults = function() { window.showAllVaults = !window.showAllVaults; window.applyVaultFilter(); };
     window.clearVaultSearch = function() { const i = document.getElementById('vaultSearch'); i.value = ''; window.applyVaultFilter(); i.focus(); };
 
-    // Live celebrations: everyone sees these when the treasurer adds something
+    // Live celebrations: everyone sees these when an officer adds something
     (function watch() {
       if (typeof db === 'undefined' || !db) return;
       const hook = (path, handler) => {
@@ -1773,9 +1997,9 @@
         db.ref(path).limitToLast(1).on('child_added', snap => { if (ready) handler(snap.val() || {}); });
         db.ref(path).once('value', () => { ready = true; });
       };
-      hook('dues', d => { burstConfetti(); showToast('💰 New dues just came in! ₱' + (parseFloat(d.amount) || 0).toFixed(2)); });
-      hook('expenses', e => showToast('🧾 Expense alert: ' + (e.title || 'something') + ' (₱' + (parseFloat(e.amount) || 0).toFixed(2) + ')'));
-      hook('fines', f => { showToast('🌼 New reminder for ' + (f.student || 'classmate') + ' 💛'); });
+      hook('dues', d => { burstConfetti(); showToast((d.type === 'vault' ? '🔐 Vault contributions collected! ₱' : '💰 New store revenue' + (d.name ? ' (' + d.name + ')' : '') + '! ₱') + (parseFloat(d.amount) || 0).toFixed(2) + (d.by ? ' (by ' + d.by + ')' : '')); });
+      hook('expenses', e => showToast('🧾 Expense alert: ' + (e.title || 'something') + ' (₱' + (parseFloat(e.amount) || 0).toFixed(2) + ')' + (e.by ? ' — by ' + e.by : '')));
+      hook('fines', f => { showToast('🌼 New reminder for ' + (f.student || 'classmate') + ' 💛' + (f.by ? ' (by ' + f.by + ')' : '')); });
       hook('suggestions', g => showToast('💬 New chika from ' + (g.author || 'someone') + '!'));
     })();
   </script>
